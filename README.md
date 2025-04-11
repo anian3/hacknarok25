@@ -1,1 +1,1 @@
-"# Hacknarok 2025" 
+# Hacknarok 2025
