@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen w-full">
       <Header />
-      <main className="flex-grow w-full px-4 py-6">
+      <main className="flex-grow w-full px-0 py-0">
         <Routes>
           <Route path="/" element={<Forum />} />
           <Route path="/muse" element={<ChooseAMuse />} />
