@@ -24,9 +24,9 @@ const samplePosts = {
     {
       id: "m1",
       author: {
-        id: "user123",
-        name: "MelodyMaster",
-        avatar: "/api/placeholder/32/32",
+        id: "artist/0",
+        name: "Elena Sanchez",
+        avatar: "",
       },
       timestamp: "3 hours ago",
       content:
@@ -39,7 +39,7 @@ const samplePosts = {
           author: {
             id: "user234",
             name: "BassGroove",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Yes! Their vocalist has such a unique timbre. I caught them live last month and was blown away.",
@@ -52,7 +52,7 @@ const samplePosts = {
       author: {
         id: "user345",
         name: "ClassicalFan",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "Yesterday",
       content:
@@ -65,7 +65,7 @@ const samplePosts = {
           author: {
             id: "user456",
             name: "ViolinVirtuoso",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Your bowing looks smooth. Maybe try emphasizing the first note of each measure a bit more?",
@@ -81,7 +81,7 @@ const samplePosts = {
       author: {
         id: "user567",
         name: "CinemaCritic",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "5 hours ago",
       content:
@@ -94,7 +94,7 @@ const samplePosts = {
           author: {
             id: "user678",
             name: "FilmBuff",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "The ambiguity is what makes it brilliant! Eggers really knows how to create psychological horror.",
@@ -110,7 +110,7 @@ const samplePosts = {
       author: {
         id: "user789",
         name: "StageDirector",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "1 day ago",
       content:
@@ -123,7 +123,7 @@ const samplePosts = {
           author: {
             id: "user890",
             name: "ThespianExpert",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Keep the staging minimal - the emptiness is part of the play's essence. Focus on the rhythm of the dialogue.",
@@ -139,7 +139,7 @@ const samplePosts = {
       author: {
         id: "user901",
         name: "BookWorm",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "2 days ago",
       content:
@@ -152,7 +152,7 @@ const samplePosts = {
           author: {
             id: "user012",
             name: "LiteraryScholar",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "If you enjoyed that, you should try 'Love in the Time of Cholera' next. His prose is equally beautiful there.",
@@ -168,7 +168,7 @@ const samplePosts = {
       author: {
         id: "user123",
         name: "ImpressionistLover",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "4 hours ago",
       content:
@@ -185,7 +185,7 @@ const samplePosts = {
           author: {
             id: "user234",
             name: "ArtTeacher",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "The color palette is gorgeous! Maybe try a slightly softer transition in the water reflections?",
@@ -201,7 +201,7 @@ const samplePosts = {
       author: {
         id: "user345",
         name: "LensExplorer",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "6 hours ago",
       content:
@@ -214,7 +214,7 @@ const samplePosts = {
           author: {
             id: "user456",
             name: "PhotographyPro",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Stunning composition! The silhouette of the mountains creates such a dramatic effect.",
@@ -230,7 +230,7 @@ const samplePosts = {
       author: {
         id: "user567",
         name: "StoneCrafter",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "2 days ago",
       content:
@@ -243,7 +243,7 @@ const samplePosts = {
           author: {
             id: "user678",
             name: "ArtHistorian",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "The dynamism you've achieved is remarkable. Reminds me of Bernini's approach to capturing motion.",
@@ -259,7 +259,7 @@ const samplePosts = {
       author: {
         id: "user789",
         name: "StylishDesigner",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "1 day ago",
       content:
@@ -276,7 +276,7 @@ const samplePosts = {
           author: {
             id: "user890",
             name: "FashionEditor",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Love the sustainability angle! The contrast stitching adds a really nice contemporary edge.",
@@ -292,7 +292,7 @@ const samplePosts = {
       author: {
         id: "user901",
         name: "PixelMaster",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "3 days ago",
       content:
@@ -309,7 +309,7 @@ const samplePosts = {
           author: {
             id: "user012",
             name: "BlenderGuru",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "The atmospheric perspective is masterfully done! What did you use for the fog effect?",
@@ -325,7 +325,7 @@ const samplePosts = {
       author: {
         id: "user123",
         name: "ArtEnthusiast",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "1 hour ago",
       content:
@@ -338,7 +338,7 @@ const samplePosts = {
           author: {
             id: "user234",
             name: "CreativeSoul",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Welcome! I'm currently experimenting with linocut printmaking. Would love to see some of your mixed media work!",
@@ -351,7 +351,7 @@ const samplePosts = {
       author: {
         id: "user345",
         name: "CommunityManager",
-        avatar: "/api/placeholder/32/32",
+        avatar: "",
       },
       timestamp: "Yesterday",
       content:
@@ -364,7 +364,7 @@ const samplePosts = {
           author: {
             id: "user345",
             name: "CommunityManager",
-            avatar: "/api/placeholder/24/24",
+            avatar: "",
           },
           content:
             "Submission deadline: May 15th. Max 3 pieces per artist. Email submissions to virtual@vikingapp.com with 'Exhibition Submission' in the subject.",
@@ -377,13 +377,14 @@ const samplePosts = {
 
 const Forum: React.FC = () => {
   const { categoryId } = useParams<{ categoryId: CategoryId }>();
-  const [selectedSection, setSelectedSection] = useState<'Forum' | 'Jobs' | 'Artists'>('Forum'); // Domyślnie "Forum"
+  const [selectedSection, setSelectedSection] = useState<
+    "Forum" | "Jobs" | "Artists"
+  >("Forum"); // Domyślnie "Forum"
 
   const currentCategory = categoryId || CategoryId.MAIN;
   const categoryName = categoryNames[currentCategory as CategoryId];
   const categoryPosts = samplePosts[currentCategory as CategoryId] || [];
-
-  const handleSectionChange = (section: 'Forum' | 'Jobs' | 'Artists') => {
+  const handleSectionChange = (section: "Forum" | "Jobs" | "Artists") => {
     setSelectedSection(section);
   };
 
@@ -403,7 +404,7 @@ const Forum: React.FC = () => {
               </p>
             </div>
           )}
-          {selectedSection === 'Artists' && (
+          {selectedSection === "Artists" && (
             <div className="bg-white p-8 rounded-lg shadow text-center">
               <h3 className="text-xl font-medium text-gray-700">
                 Featured Artists
@@ -413,7 +414,7 @@ const Forum: React.FC = () => {
               </p>
             </div>
           )}
-          {selectedSection === 'Forum' && 
+          {selectedSection === "Forum" &&
             (categoryPosts.length > 0 ? (
               categoryPosts.map((post) => <Post key={post.id} post={post} />)
             ) : (
@@ -425,8 +426,7 @@ const Forum: React.FC = () => {
                   Be the first to post in the {categoryName} forum!
                 </p>
               </div>
-            ))
-          }
+            ))}
         </div>
       </main>
     </div>
