@@ -13,9 +13,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Forum />} />
           <Route path="/muse" element={<ChooseAMuse />} />
-          <Route path="/forum/:categoryId" element={<Forum />} />
+          <Route path="/:categoryId" element={<Forum />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/:profileType/:categoryId" element={<Profile />} />
+          <Route
+            path="/profile/:profileType/:categoryId"
+            element={<Profile />}
+          />
         </Routes>
       </main>
       <Footer />

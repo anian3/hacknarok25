@@ -5,55 +5,55 @@ export const CATEGORIES: Category[] = [
       id: CategoryId.MUSIC,
       title: "Music",
       image: "/images/categories/music.jpg",
-      link: "/forum/music"
+      link: "/music"
     },
     {
       id: CategoryId.FILM,
       title: "Film",
       image: "/images/categories/film.jpg",
-      link: "/forum/film"
+      link: "/film"
     },
     {
       id: CategoryId.THEATER,
       title: "Theater",
       image: "/images/categories/theater.jpg",
-      link: "/forum/theater"
+      link: "/theater"
     },
     {
       id: CategoryId.LITERATURE,
       title: "Literature",
       image: "/images/categories/literature.jpg",
-      link: "/forum/literature"
+      link: "/literature"
     },
     {
       id: CategoryId.PAINTING,
       title: "Painting",
       image: "/images/categories/painting.jpg",
-      link: "/forum/painting"
+      link: "/painting"
     },
     {
       id: CategoryId.PHOTOGRAPHY,
       title: "Photography",
       image: "/images/categories/photography.jpg",
-      link: "/forum/photography"
+      link: "/photography"
     },
     {
       id: CategoryId.SCULPTURE,
       title: "Sculpture",
       image: "/images/categories/sculpture.jpg",
-      link: "/forum/sculpture"
+      link: "/sculpture"
     },
     {
       id: CategoryId.FASHION,
       title: "Fashion",
       image: "/images/categories/fashion.jpg",
-      link: "/forum/fashion"
+      link: "/fashion"
     },
     {
       id: CategoryId.COMPUTER_GRAPHICS,
       title: "Computer Graphics",
       image: "/images/categories/computer_graphics.jpg",
-      link: "/forum/computer_graphics"
+      link: "/computer_graphics"
     },
     {
         id: CategoryId.MAIN,
