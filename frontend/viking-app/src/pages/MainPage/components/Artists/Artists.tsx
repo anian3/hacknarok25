@@ -352,17 +352,16 @@ const Artists = ({ categoryId }: { categoryId: CategoryId }) => {
     categoryId === CategoryId.MAIN
       ? artistProfiles // Show all artists when MAIN category is selected
       : artistProfiles.filter((artist) => artist.category === categoryId);
-
+  
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="max-w-3xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">
           Featured Artists
         </h2>
       </div>
-
       {filteredArtists.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredArtists.map((artist) => (
             <ArtistCard key={artist.id} artist={artist} />
           ))}
