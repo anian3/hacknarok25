@@ -371,10 +371,6 @@ const samplePosts = {
   ],
 };
 
-interface ForumProps {
-  categoryId: CategoryId;
-}
-
 const Forum = ({ categoryId }: { categoryId: CategoryId }) => {
   const categoryName = categoryNames[categoryId as CategoryId];
   const categoryPosts = samplePosts[categoryId as CategoryId] || [];

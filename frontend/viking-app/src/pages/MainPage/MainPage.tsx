@@ -25,7 +25,9 @@ const MainPage: React.FC = () => {
       <main className="flex-grow text-center mt-4 px-0">
         <div className="space-y-6 mt-8">
           {selectedSection === "Jobs" && <Jobs />}
-          {selectedSection === "Artists" && <Artists />}
+          {selectedSection === "Artists" && (
+            <Artists categoryId={currentCategory} />
+          )}
           {selectedSection === "Forum" && (
             <Forum categoryId={currentCategory} />
           )}

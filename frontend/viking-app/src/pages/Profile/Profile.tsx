@@ -379,7 +379,7 @@ const Profile = () => {
 
 // Sample artist profile data
 const artistSampleProfile: ArtistProfileData = {
-  id: "artist-music-1",
+  id: "0",
   type: "artist",
   category: CategoryId.MUSIC,
   name: "Elena Sánchez",
