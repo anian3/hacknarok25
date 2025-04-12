@@ -59,7 +59,7 @@ export const CATEGORIES: Category[] = [
         id: CategoryId.MAIN,
         title: "Main Forum",
         image: "/images/categories/main.jpg",
-        link: "/forum/main"
+        link: "/"
     }
   ];
   
