@@ -116,7 +116,7 @@ const Post = ({ post = samplePost }: PostProps) => {
 
   return (
     <div
-      className="bg-white rounded-lg shadow-md mb-4 overflow-hidden cursor-pointer transition-all duration-200 hover:shadow-lg max-w-2xl mx-auto"
+      className="bg-white rounded-2xl shadow-md mb-4 overflow-hidden cursor-pointer transition-all duration-200 hover:shadow-lg max-w-2xl mx-auto"
       onClick={toggleExpand}
     >
       {/* Post Header - Always visible */}

@@ -382,7 +382,7 @@ const Forum = ({ categoryId }: { categoryId: CategoryId }) => {
   return categoryPosts.length > 0 ? (
     categoryPosts.map((post) => <Post key={post.id} post={post} />)
   ) : (
-    <div className="bg-white p-8 rounded-lg shadow text-center">
+    <div className="bg-white p-8 rounded-max shadow text-center">
       <h3 className="text-xl font-medium text-gray-700">No posts yet</h3>
       <p className="text-gray-500 mt-2">
         Be the first to post in the {categoryName} forum!

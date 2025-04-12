@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "/assets/logo.png";
+import bank_outline from "/assets/bank-outline.png";
+import chat_outline from "/assets/chat-outline.png";
+import profile_outline from "/assets/profile_outline.png";
+import hand_extended_outline from "/assets/hand-extended-outline.png";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,25 +16,37 @@ function Header() {
 
   return (
     <header className="w-full p-4 bg-slate-900 relative">
-      <nav className="flex items-center justify-between max-w-6xl mx-auto">
+      <nav className="flex items-center justify-between mx-5">
         <Link to="/" className="flex-shrink-0">
           <img src={logo} alt="Logo" className="h-10 md:h-12" />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex justify-end space-x-8 lg:space-x-16 flex-1">
-          <Link to="/muse" className="hover:underline text-lg text-white">
-            Choose a muse
-          </Link>
-          <Link to="/community" className="hover:underline text-lg text-white">
-            Community
-          </Link>
-          <Link to="/messages" className="hover:underline text-lg text-white">
-            Messages
-          </Link>
-          <Link to="/profile" className="hover:underline text-lg text-white">
-            Profile
-          </Link>
+          <div className="flex flex-col items-center justify-center">
+            <img src={bank_outline} alt="Bank" className="h-8 w-8" />
+            <Link to="/muse" className="hover:underline text-lg text-white ml-0">
+              Choose a muse
+            </Link>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <img src={hand_extended_outline} alt="Hand" className="h-8 w-8" />
+            <Link to="/community" className="hover:underline text-lg text-white ml-0">
+              Community
+            </Link>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <img src={chat_outline} alt="Messages" className="h-8 w-8" />
+            <Link to="/messages" className="hover:underline text-lg text-white ml-0">
+              Messages
+            </Link>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <img src={profile_outline} alt="Profile" className="h-8 w-8" />
+            <Link to="/profile" className="hover:underline text-lg text-white ml-0">
+              Profile
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
