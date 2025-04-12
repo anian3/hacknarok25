@@ -6,7 +6,7 @@ import ChooseAMuse from "./pages/ChooseAMuse/ChooseAMuse";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full bg-orange-100">
       <Header />
       <main className="flex-grow w-full">
         <Routes>
