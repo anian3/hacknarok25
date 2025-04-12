@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { CategoryId } from "../../types/categories";
-import Post from "./components/Post/Post";
 import { useState } from "react";
 import ForumHeader from "./components/SubHeader/SubHeader";
 import Forum from "./components/Forum/Forum";
