@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import { BaseProfileData } from "../../../../types/BaseProfileData";
 import { ArtistProfileData } from "../../../../types/ArtistProfileData";
-import { CategoryId } from "../../../../types/categories";
 
 // ArtistCard Component
 const ArtistCard = ({ artist }: { artist: ArtistProfileData }) => {
