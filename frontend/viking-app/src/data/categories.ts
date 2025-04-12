@@ -54,6 +54,12 @@ export const CATEGORIES: Category[] = [
       title: "Computer Graphics",
       image: "/images/categories/computer_art.jpg",
       link: "/forums/computer_art"
+    },
+    {
+        id: CategoryId.MAIN,
+        title: "Main Forum",
+        image: "/images/categories/main.jpg",
+        link: "/forums/main"
     }
   ];
   

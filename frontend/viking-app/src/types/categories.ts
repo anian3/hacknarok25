@@ -8,6 +8,7 @@ export enum CategoryId {
     SCULPTURE = "sculpture",
     FASHION = "fashion",
     COMPUTER_GRAPHICS = "computer_graphics",
+    MAIN = "main"
   }
 
   export interface Category {
