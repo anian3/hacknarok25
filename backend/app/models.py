@@ -32,6 +32,37 @@ class Profile(db.Model):
             "type": self.type
         }
 
+# Business Profile model
+class BusinessProfile(db.Model):
+    __tablename__ = 'business_profiles'
+    id = db.Column(db.String, db.ForeignKey('profiles.id'), primary_key=True)
+
+    stats = db.Column(db.JSON)  # Flexible stats for businesses (e.g., revenue, clients)
+    services = db.Column(db.JSON)  # List of services offered by the business
+    featured_work = db.Column(db.JSON)  # List of featured works (title, image)
+
+    contact_phone = db.Column(db.String(255))
+    contact_address = db.Column(db.Text)
+
+    profile = db.relationship('Profile', backref=db.backref('business_profile', uselist=False))
+
+    def to_dict(self):
+        base_dict = self.profile.to_dict()  # Access BaseProfileData's to_dict
+        base_dict.update({
+            "stats": self.stats,
+            "services": self.services,
+            "featured_work": self.featured_work,
+            "contact": {
+                **base_dict["contact"],
+                "phone": self.contact_phone,
+                "address": self.contact_address
+            }
+        })
+        return base_dict
+
+    def __repr__(self):
+        return f'<BusinessProfile {self.profile.name}>'
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)

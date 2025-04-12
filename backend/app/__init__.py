@@ -11,7 +11,7 @@ def create_app():
 
     db.init_app(app)
     CORS(app)
-    Swagger(app)
+    swagger = Swagger(app)
 
     from app.routes import main as main_blueprint
     app.register_blueprint(main_blueprint)

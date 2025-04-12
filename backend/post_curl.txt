@@ -1,0 +1,20 @@
+curl -X POST http://127.0.0.1:5000/business_profile \
+-H "Content-Type: application/json" \
+-d '{
+  "id": "business_2",
+  "name": "Creative Studio",
+  "title": "Design & Branding Studio",
+  "avatar": "https://example.com/studio_avatar.jpg",
+  "cover_image": "https://example.com/studio_cover.jpg",
+  "bio": "We create amazing design experiences.",
+  "location": "Los Angeles, CA",
+  "contact_email": "contact@creativestudio.com",
+  "contact_website": "https://creativestudio.com",
+  "contact_social": {"linkedin": "https://linkedin.com/company/creativestudio"},
+  "type": "business",
+  "stats": {"revenue": 1200000, "clients": 50},
+  "services": ["Branding", "UI/UX Design", "Web Design"],
+  "featured_work": [{"title": "Rebranding for XYZ Corp", "image": "https://example.com/project1.jpg"}],
+  "contact_phone": "+1 555 987 6543",
+  "contact_address": "789 Creative St, Los Angeles, CA"
+}'

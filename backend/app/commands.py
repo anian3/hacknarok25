@@ -1,8 +1,45 @@
 from flask.cli import with_appcontext
 import click
 from app import db
-from app.models import User, Profile
+from app.models import User, Profile, BusinessProfile
 
+
+@click.command(name="create_sample_business_profile")
+@with_appcontext
+def create_sample_business_profile():
+    # Create a sample base profile instance (same as before)
+    sample_profile = Profile(
+        id="business_1",
+        name="Tech Solutions Inc.",
+        title="Software Development Company",
+        avatar="https://example.com/business_avatar.jpg",
+        cover_image="https://example.com/business_cover.jpg",
+        bio="We deliver cutting-edge software solutions.",
+        location="San Francisco, CA",
+        contact_email="contact@techsolutions.com",
+        contact_website="https://techsolutions.com",
+        contact_social={"linkedin": "https://linkedin.com/company/techsolutions"},
+        type="business"
+    )
+
+    # Create a sample business profile instance
+    sample_business_profile = BusinessProfile(
+        id="business_1",  # Linking to the base profile's id
+        stats={"revenue": 5000000, "clients": 150},
+        services=["Web Development", "Mobile App Development", "Cloud Solutions"],
+        featured_work=[{"title": "AI for Finance", "image": "https://example.com/project1.jpg"}],
+        contact_phone="+1 800 555 4567",
+        contact_address="456 Tech Street, San Francisco, CA"
+    )
+
+    # Add both the base profile and the business profile to the session
+    db.session.add(sample_profile)
+    db.session.add(sample_business_profile)
+
+    # Commit the changes to the database
+    db.session.commit()
+
+    print("Sample business profile created successfully!")
 
 @click.command("create-sample-profile")
 @with_appcontext
@@ -45,3 +82,4 @@ def seed():
 def register_commands(app):
     app.cli.add_command(seed)
     app.cli.add_command(create_sample_profile)
+    app.cli.add_command(create_sample_business_profile)
