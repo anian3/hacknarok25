@@ -7,8 +7,6 @@ import App from "./App.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      {" "}
-      {/* Wrap your app with BrowserRouter */}
       <App />
     </BrowserRouter>
   </StrictMode>
