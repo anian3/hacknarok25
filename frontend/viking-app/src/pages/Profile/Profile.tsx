@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProfileType } from "../../types/ProfileType";
-import { ProfileData } from "../../types/profileData";
 import { ArtistProfileData } from "../../types/ArtistProfileData";
+import { ProfileData } from "../../types/ProfileData";
 import { BusinessProfileData } from "../../types/BusinessProfileData";
 import { CategoryId } from "../../types/categories";
 
