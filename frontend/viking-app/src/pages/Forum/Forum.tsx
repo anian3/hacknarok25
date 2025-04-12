@@ -2,7 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { CategoryId } from "../../types/categories";
 import Post from "./components/Post/Post";
-import { useState } from "react";
+import { useState } from 'react';
+import ForumHeader from '../../components/ForumHeader/ForumHeader';
 
 const categoryNames: Record<CategoryId, string> = {
   [CategoryId.MUSIC]: "Music",
@@ -389,54 +390,11 @@ const Forum: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen m-0">
-      {/* Nagłówek z przyciskami - pasek z tłem rozciągnięty na całą szerokość */}
-      <header className="flex justify-center bg-blue-300 py-4 w-full">
-        {/*Wiadomość w lewym rogu wyśrodkowana w pionie */}
-        <div className="absolute left-0 ml-4 text-2xl font-bold py-1.5 ">
-          {categoryName && categoryName !== "Main" ? (
-            <span className="text-black">{categoryName}</span>
-          ) : (
-            <span className="text-black"></span>
-          )}
-        </div>
-
-        <button
-          onClick={() => handleSectionChange("Forum")}
-          className={`mx-2 px-4 py-2 text-lg cursor-pointer transition-colors duration-300 ${
-            selectedSection === "Forum"
-              ? "font-bold bg-blue-200"
-              : "bg-gray-300 hover:bg-blue-100"
-          }`}
-        >
-          Forum
-        </button>
-        <button
-          onClick={() => handleSectionChange("Jobs")}
-          className={`mx-2 px-4 py-2 text-lg cursor-pointer transition-colors duration-300 ${
-            selectedSection === "Jobs"
-              ? "font-bold bg-blue-200"
-              : "bg-gray-300 hover:bg-blue-100"
-          }`}
-        >
-          Jobs
-        </button>
-        <button
-          onClick={() => handleSectionChange("Artists")}
-          className={`mx-2 px-4 py-2 text-lg cursor-pointer transition-colors duration-300 ${
-            selectedSection === "Artists"
-              ? "font-bold bg-blue-200"
-              : "bg-gray-300 hover:bg-blue-100"
-          }`}
-        >
-          Artists
-        </button>
-      </header>
-
-      {/* Sekcja informująca o aktualnej wybranej sekcji */}
+      {/* Header with category name and section buttons */}
+      <ForumHeader onSectionChange={handleSectionChange}/>
       <main className="flex-grow text-center mt-4 px-0">
         <div className="space-y-6 mt-8">
-          {/*alternative code: (check first if chosen button is Forum)*/}
-          {selectedSection === "Jobs" && (
+          {selectedSection === 'Jobs' && (
             <div className="bg-white p-8 rounded-lg shadow text-center">
               <h3 className="text-xl font-medium text-gray-700">
                 Job Listings

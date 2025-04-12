@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <header className="w-full p-4 bg-amber-700 relative">
+    <header className="w-full p-4 bg-slate-900 relative">
       <nav className="flex items-center justify-between max-w-6xl mx-auto">
         <Link to="/" className="flex-shrink-0">
           <img src={logo} alt="Logo" className="h-10 md:h-12" />

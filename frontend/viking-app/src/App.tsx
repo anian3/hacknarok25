@@ -7,7 +7,7 @@ import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen w-full">
+    <div className="flex flex-col min-h-screen w-full bg-orange-100">
       <Header />
       <main className="flex-grow w-full">
         <Routes>
