@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { CategoryId } from "../../types/categories";
 import Post from "./components/Post/Post";
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { CategoryId } from '../../types/categories';
 
 const categoryNames: Record<CategoryId, string> = {
   [CategoryId.MUSIC]: "Music",
