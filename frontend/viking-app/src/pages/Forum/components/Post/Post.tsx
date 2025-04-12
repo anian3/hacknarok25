@@ -207,7 +207,7 @@ const Post = ({ post = samplePost }: PostProps) => {
       <div className="px-8 py-3 border-t border-gray-100 flex justify-between text-gray-600">
         <div className="flex space-x-8">
           <button
-            className={`flex items-center space-x-1 ${
+            className={`flex items-center space-x-1 cursor-pointer ${
               liked ? "text-red-500" : "hover:text-red-500"
             }`}
             onClick={toggleLike}
@@ -216,7 +216,7 @@ const Post = ({ post = samplePost }: PostProps) => {
             <span>{liked ? post.likes + 1 : post.likes}</span>
           </button>
           <button
-            className="flex items-center space-x-1 hover:text-blue-500"
+            className="flex items-center space-x-1 cursor-pointer hover:text-blue-500"
             onClick={(e) => {
               e.stopPropagation();
               setShowCommentInput(!showCommentInput);
@@ -225,7 +225,7 @@ const Post = ({ post = samplePost }: PostProps) => {
             <MessageCircle className="h-5 w-5" />
             <span>{post.comments.length}</span>
           </button>
-          <button className="flex items-center space-x-1 hover:text-green-500">
+          <button className="flex items-center space-x-1 cursor-pointer hover:text-green-500">
             <Share2 className="h-5 w-5" />
             <span>Share</span>
           </button>
