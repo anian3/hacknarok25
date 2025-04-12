@@ -84,32 +84,32 @@ function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-amber-700 shadow-lg z-50">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900 shadow-lg z-50">
           <div className="flex flex-col py-2">
             <Link
               to="/muse"
-              className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
+              className="px-4 py-3 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Choose a muse
             </Link>
             <Link
               to="/community"
-              className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
+              className="px-4 py-3 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Community
             </Link>
             <Link
               to="/messages"
-              className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
+              className="px-4 py-3 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Messages
             </Link>
             <Link
               to="/profile"
-              className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
+              className="px-4 py-3 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Profile
