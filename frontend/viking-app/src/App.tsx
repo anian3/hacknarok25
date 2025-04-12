@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Forum from "./pages/Forum/Forum";
+import Forum from "./pages/MainPage/MainPage";
 import ChooseAMuse from "./pages/ChooseAMuse/ChooseAMuse";
 import Profile from "./pages/Profile/Profile";
 

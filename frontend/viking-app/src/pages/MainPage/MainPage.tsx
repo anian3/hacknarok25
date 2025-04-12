@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { CategoryId } from "../../types/categories";
 import Post from "./components/Post/Post";
-import { useState } from 'react';
-import ForumHeader from './components/ForumHeader/ForumHeader';
+import { useState } from "react";
+import ForumHeader from "./components/SubHeader/SubHeader";
 
 const categoryNames: Record<CategoryId, string> = {
   [CategoryId.MUSIC]: "Music",
@@ -375,7 +375,7 @@ const samplePosts = {
   ],
 };
 
-const Forum: React.FC = () => {
+const MainPage: React.FC = () => {
   const { categoryId } = useParams<{ categoryId: CategoryId }>();
   const [selectedSection, setSelectedSection] = useState<
     "Forum" | "Jobs" | "Artists"
@@ -391,10 +391,10 @@ const Forum: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen m-0">
       {/* Header with category name and section buttons */}
-      <ForumHeader onSectionChange={handleSectionChange}/>
+      <ForumHeader onSectionChange={handleSectionChange} />
       <main className="flex-grow text-center mt-4 px-0">
         <div className="space-y-6 mt-8">
-          {selectedSection === 'Jobs' && (
+          {selectedSection === "Jobs" && (
             <div className="bg-white p-8 rounded-lg shadow text-center">
               <h3 className="text-xl font-medium text-gray-700">
                 Job Listings
@@ -433,4 +433,4 @@ const Forum: React.FC = () => {
   );
 };
 
-export default Forum;
+export default MainPage;

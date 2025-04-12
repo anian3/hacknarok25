@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ForumHeader = ({ onSectionChange }: { onSectionChange: (section: 'Forum' | 'Jobs' | 'Artists') => void }) => {
+const SubHeader = ({ onSectionChange }: { onSectionChange: (section: 'Forum' | 'Jobs' | 'Artists') => void }) => {
   const [selectedSection, setSelectedSection] = useState<'Forum' | 'Jobs' | 'Artists'>('Forum');
   const [hovering, setHovering] = useState<null | 'Forum' | 'Jobs' | 'Artists'>(null);
 
@@ -42,4 +42,4 @@ const ForumHeader = ({ onSectionChange }: { onSectionChange: (section: 'Forum' |
   );
 };
 
-export default ForumHeader;
+export default SubHeader;
