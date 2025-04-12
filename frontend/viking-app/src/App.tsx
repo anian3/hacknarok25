@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Forum from './pages/Forum/Forum';
-import ChooseAMuse from './pages/ChooseAMuse/ChooseAMuse';
+import Forum from "./pages/Forum/Forum";
+import ChooseAMuse from "./pages/ChooseAMuse/ChooseAMuse";
 
 function App() {
   return (
     <div className="flex flex-col min-h-screen w-full">
       <Header />
-      <main className="flex-grow w-full px-4 py-6">
+      <main className="flex-grow w-full">
         <Routes>
           <Route path="/" element={<Forum />} />
           <Route path="/muse" element={<ChooseAMuse />} />
@@ -16,6 +16,8 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </div>)}
+    </div>
+  );
+}
 
 export default App;
