@@ -139,9 +139,6 @@ const Post = ({ post = samplePost }: PostProps) => {
             >
               {post.author.name}
             </h3>
-            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-              Profile ID: {post.author.id}
-            </span>
           </div>
           <div className="flex items-center text-sm">
             <span className="text-gray-600 mr-2">
