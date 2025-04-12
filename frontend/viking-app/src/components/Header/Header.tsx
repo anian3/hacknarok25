@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logo from "../../assets/logo.png";
+import logo from "/assets/logo.png";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +34,7 @@ function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-white focus:outline-none"
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
@@ -51,29 +51,29 @@ function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-amber-700 shadow-lg z-50">
           <div className="flex flex-col py-2">
-            <Link 
-              to="/muse" 
+            <Link
+              to="/muse"
               className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Choose a muse
             </Link>
-            <Link 
-              to="/community" 
+            <Link
+              to="/community"
               className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Community
             </Link>
-            <Link 
-              to="/messages" 
+            <Link
+              to="/messages"
               className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Messages
             </Link>
-            <Link 
-              to="/profile" 
+            <Link
+              to="/profile"
               className="px-4 py-3 hover:bg-amber-800 text-white text-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
