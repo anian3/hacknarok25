@@ -2,16 +2,28 @@
 from . import db
 
 from flask import Blueprint, jsonify, request
-from app.models import User
+from app.models import User, Profile
 
 main = Blueprint("main", __name__)
 
-@main.route("/users")
-def get_users():
-    users = User.query.all()
-    return jsonify([u.to_dict() for u in users])
+@main.route('/profile/', methods=['GET'])
+def get_profiles():
+    profiles = Profile.query.all()
+    return jsonify([p.to_dict() for p in profiles]), 200
 
-main = Blueprint('main', __name__)
+@main.route('/profile/<profile_id>', methods=['GET'])
+def get_profile(profile_id):
+    # Query the profile by ID
+    profile = Profile.query.get(profile_id)
+
+    if profile:
+        # Return the profile data in JSON format
+        return jsonify(profile.to_dict()), 200
+    else:
+        # Return a message if the profile is not found
+        return jsonify({"message": "Profile not found"}), 404
+
+
 
 @main.route('/')
 def index():
