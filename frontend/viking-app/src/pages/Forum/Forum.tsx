@@ -1,17 +1,5 @@
 import React, { useState } from 'react';
-import RoleFilter from '../../components/RoleFilter';
-
-const rolesList = [
-  "Artist",
-  "Painter",
-  "Sculptor",
-  "Writer",
-  "Photographer",
-  "Designer",
-  "Musician",
-  "Illustrator",
-  "Developer"
-];
+import RoleFilter from '../../components/RoleFilter/RoleFilter';
 
 const Forum: React.FC = () => {
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
@@ -27,7 +15,6 @@ const Forum: React.FC = () => {
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <RoleFilter
-        roles={rolesList}
         selectedRoles={selectedRoles}
         onChange={handleCheckboxChange}
       />
