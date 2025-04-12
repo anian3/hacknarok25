@@ -40,7 +40,7 @@ const Home: React.FC = () => {
               borderRadius: '5px',
               cursor: 'pointer',
             }}
-          >
+          />
         </div>
 
         {/* Grid of cards placed strategically around the tree */}
