@@ -1,0 +1,105 @@
+Nasze śwaity
+	MUSIC	Muzyka – tworzenie, produkcja, wokal, instrumenty, beatmaking
+
+	FILM		Film – reżyseria, montaż, scenariusz, produkcja wideo, krótkometraże
+
+	THEATRE	Teatr – performans na żywo, aktorstwo sceniczne, reżyseria teatralna
+
+	TEXT		Literatura / Książka – proza, poezja, eseje, storytelling
+
+	PAINTING	Malarstwo -- rysunek, ilustracja, kolaż, street art
+
+	PHOTO		Fotografia – artystyczna, reportażowa, portretowa, eksperymentalna
+
+	SCULPTURE	Rzeźba - w tym drukowanie 3D
+
+	COMPUTER ART	Sztuka cyfrowa – grafika 3D, digital painting, NFT, animacja
+
+	FASHION	Moda - Desing ubrań
+
+tworzymy 9 forów po jednym na każdą dziedzinę sztuki
+posty mają tagi: #Music
+10 forum open
+
+
+CLASS: User
+FIELDS:
+- id: Long
+- firstname: String
+- lastname: String
+- passwordHash: String
+- role: Role (enum: ADMIN, USER)
+- art: Art (many-to-one)
+
+CLASS: Art
+FIELDS:
+- id: Long
+- name: ArtType (enum)
+- description: String
+
+ENUM: ArtType
+VALUES:
+- MUSIC
+- FILM
+- THEATRE
+- TEXT
+- PAINTING
+- PHOTO
+- SCULPTURE
+- COMPUTER_ART
+- FASHION
+
+ENUM: Role
+VALUES:
+- ADMIN
+- USER
+- ARTIST
+
+CLASS: Post
+DESC: A user post in the art feed (media + text)
+FIELDS:
+- id: Long
+- user: User (many-to-one)
+- art: Art (many-to-one) // null = global
+- text: String
+- mediaUrl: String
+- createdAt: LocalDateTime
+
+CLASS: Forum
+DESC: Each art has its own forum + 1 global forum
+FIELDS:
+- id: Long
+- name: String
+- art: Art (many-to-one, nullable)
+
+CLASS: ForumPost
+FIELDS:
+- id: Long
+- forum: Forum (many-to-one)
+- user: User (many-to-one)
+- content: String
+- mediaUrl: String
+- createdAt: LocalDateTime
+
+CLASS: Comment
+FIELDS:
+- id: Long
+- post: ForumPost (many-to-one)
+- user: User (many-to-one)
+- content: String
+- createdAt: LocalDateTime
+
+CLASS: CommissionRequest
+DESC: A post requesting collaboration or paid work
+FIELDS:
+- id: Long
+- title: String
+- description: String
+- user: User (many-to-one)
+- art: Art (many-to-one)
+- budget: BigDecimal
+- isPaid: Boolean
+- createdAt: LocalDateTime
+- contactInfo: String
+
+
