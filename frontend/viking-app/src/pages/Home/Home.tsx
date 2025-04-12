@@ -1,11 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getAllCategories } from "../../data/categories";
 import CategoryCard from "./components/CategoryCard/CategoryCard";
 
 const Home: React.FC = () => {
-  const navigate = useNavigate();
-    
   const categories = getAllCategories();
   return (
     <div className="relative w-full min-h-screen">
@@ -22,25 +18,12 @@ const Home: React.FC = () => {
       <div className="relative z-10 w-full pt-8 pb-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
-            Welcome to Viking App
+            9 MUSES
           </h1>
           <p className="text-xl text-white max-w-2xl mx-auto drop-shadow-md">
-            Explore the nine worlds of Viking knowledge through our category
-            forums
+            Explore the realms of knowledge and creativity. Each category is a
+            gateway to a new world of ideas and inspiration.
           </p>
-          <button
-            onClick={() => navigate('/forum')}
-            style={{
-              marginTop: '20px',
-              padding: '10px 20px',
-              fontSize: '16px',
-              backgroundColor: '#007bff',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '5px',
-              cursor: 'pointer',
-            }}
-          />
         </div>
 
         {/* Grid of cards placed strategically around the tree */}
