@@ -386,72 +386,53 @@ const Forum: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <main style={{ flexGrow: 1, textAlign: 'center', marginTop: '50px' }}>
-        {/* Przycisk przełączania sekcji */}
-        <div style={{ marginBottom: '20px' }}>
-          <button
-            onClick={() => handleSectionChange('Forum')}
-            style={{
-              margin: '0 10px',
-              padding: '10px 20px',
-              backgroundColor: selectedSection === 'Forum' ? 'lightblue' : 'lightgray',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '16px',
-            }}
-          >
-            Forum
-          </button>
-          <button
-            onClick={() => handleSectionChange('Jobs')}
-            style={{
-              margin: '0 10px',
-              padding: '10px 20px',
-              backgroundColor: selectedSection === 'Jobs' ? 'lightblue' : 'lightgray',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '16px',
-            }}
-          >
-            Jobs
-          </button>
-          <button
-            onClick={() => handleSectionChange('Artists')}
-            style={{
-              margin: '0 10px',
-              padding: '10px 20px',
-              backgroundColor: selectedSection === 'Artists' ? 'lightblue' : 'lightgray',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '16px',
-            }}
-          >
-            Artists
-          </button>
-        </div>
+    <div className="flex flex-col min-h-screen m-0">
+      {/* Nagłówek z przyciskami - pasek z tłem rozciągnięty na całą szerokość */}
+      <header className="flex justify-center bg-blue-300 py-4 w-full">
+        <button
+          onClick={() => handleSectionChange('Forum')}
+          className={`mx-2 px-4 py-2 text-lg cursor-pointer transition-colors duration-300 ${
+            selectedSection === 'Forum' ? 'font-bold bg-blue-200' : 'bg-gray-300 hover:bg-blue-100'
+          }`}
+        >
+          Forum
+        </button>
+        <button
+          onClick={() => handleSectionChange('Jobs')}
+          className={`mx-2 px-4 py-2 text-lg cursor-pointer transition-colors duration-300 ${
+            selectedSection === 'Jobs' ? 'font-bold bg-blue-200' : 'bg-gray-300 hover:bg-blue-100'
+          }`}
+        >
+          Jobs
+        </button>
+        <button
+          onClick={() => handleSectionChange('Artists')}
+          className={`mx-2 px-4 py-2 text-lg cursor-pointer transition-colors duration-300 ${
+            selectedSection === 'Artists' ? 'font-bold bg-blue-200' : 'bg-gray-300 hover:bg-blue-100'
+          }`}
+        >
+          Artists
+        </button>
+      </header>
 
-        {/* Tekst informujący, która sekcja jest wybrana */}
-        <p style={{ fontSize: '18px', fontWeight: 'bold' }}>
-          You are currently viewing the <span style={{ textTransform: 'uppercase' }}>{selectedSection}</span> section.
+      {/* Sekcja informująca o aktualnej wybranej sekcji */}
+      <main className="flex-grow text-center mt-4 px-0">
+        <p className="text-xl font-bold">
+          You are currently viewing the{' '}
+          <span className="uppercase">{selectedSection}</span> section.
         </p>
 
-        {/* Informacja o kategorii */}
-        <h1>Welcome to Viking App</h1>
-        <p>This is the forum page. Explore our features and enjoy your stay!</p>
+        {/* Główna zawartość */}
+        <h1 className="text-3xl mt-6">Welcome to Viking App</h1>
+        <p className="mt-2 text-lg">This is the forum page. Explore our features and enjoy your stay!</p>
 
         {categoryName ? (
-          <div
-            style={{ marginTop: "30px", fontWeight: "bold", fontSize: "18px" }}
-          >
-            🎉 Congratulations! You are currently on the{" "}
-            <span style={{ textTransform: "uppercase" }}>{categoryName}</span>{" "}
-            forum!
+          <div className="mt-6 font-bold text-xl">
+            🎉 Congratulations! You are currently on the{' '}
+            <span className="uppercase">{categoryName}</span> forum!
           </div>
         ) : (
-          <p style={{ color: "red", marginTop: "30px" }}>
-            Invalid forum category.
-          </p>
+          <p className="mt-6 text-red-500">Invalid forum category.</p>
         )}
 
         <div className="space-y-6 mt-8">
