@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Forum from './pages/Forum/Forum';
+import ChooseAMuse from './pages/ChooseAMuse/ChooseAMuse';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <main className="flex-grow w-full px-4 py-6">
         <Routes>
           <Route path="/" element={<Forum />} />
+          <Route path="/muse" element={<ChooseAMuse />} />
+          <Route path="/forum/:categoryId" element={<Forum />} />
         </Routes>
       </main>
       <Footer />
