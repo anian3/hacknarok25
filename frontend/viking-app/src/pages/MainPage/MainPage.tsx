@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { CategoryId } from "../../types/categories";
 import { useState } from "react";
-import ForumHeader from "./components/SubHeader/SubHeader";
+import SubHeader from "./components/SubHeader/SubHeader";
 import Forum from "./components/Forum/Forum";
 import Artists from "./components/Artists/Artists";
 import Jobs from "./components/Jobs/Jobs";
@@ -19,9 +19,9 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen m-0">
+    <div className="flex flex-col m-0 items-center justify-center w-max bg-beige-100 px-5 mx-auto min-h-screen">
       {/* Header with category name and section buttons */}
-      <ForumHeader onSectionChange={handleSectionChange} />
+      <SubHeader onSectionChange={handleSectionChange} />
       <main className="flex-grow text-center mt-4 px-0">
         <div className="space-y-6 mt-8">
           {selectedSection === "Jobs" && <Jobs />}

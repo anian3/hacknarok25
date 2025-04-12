@@ -14,13 +14,13 @@ const SubHeader = ({ onSectionChange }: { onSectionChange: (section: 'Forum' | '
     const isHoveringAnother = hovering !== null && hovering !== section;
 
     const baseClasses =
-      'mx-0 px-25 py-2 text-lg cursor-pointer rounded-full transition-colors duration-200 ease-in-out';
+      'mx-0 px-25 py-2 text-lg cursor-pointer rounded-full transition-colors duration-300 ease-in-out';
 
     const selectedClasses = isHoveringAnother
       ? 'bg-slate-500 text-white'
-      : 'bg-slate-800 text-white';
+      : 'bg-granat text-white';
 
-    const hoverClasses = 'hover:bg-slate-800 hover:text-white';
+    const hoverClasses = 'hover:bg-granat hover:text-white';
 
     return (
       <button

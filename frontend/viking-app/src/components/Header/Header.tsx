@@ -15,14 +15,14 @@ function Header() {
   };
 
   return (
-    <header className="w-full p-4 bg-slate-900 relative">
+    <header className="w-full p-4 bg-granat relative">
       <nav className="flex items-center justify-between mx-5">
         <Link to="/" className="flex-shrink-0">
           <img src={logo} alt="Logo" className="h-10 md:h-12" />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex justify-end space-x-8 lg:space-x-16 flex-1">
+        <div className="md:flex justify-end space-x-8 lg:space-x-16 flex-1">
           <div className="flex flex-col items-center justify-center">
             <img src={bank_outline} alt="Bank" className="h-8 w-8" />
             <Link to="/muse" className="hover:underline text-lg text-white ml-0">

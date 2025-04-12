@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --beige-100: #fef3e2;
+    --beige-200: #f0e6d6;
+    --granat: #000d28;
+  }
+}
+
+@layer utilities {
+  .bg-beige-100 { background-color: var(--beige-100); }
+  .bg-beige-200 { background-color: var(--beige-200); }
+  .bg-granat { background-color: var(--granat); }
+  .hover\:bg-granat:hover { background-color: var(--granat); }
+}
