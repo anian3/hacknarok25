@@ -428,18 +428,43 @@ const Forum: React.FC = () => {
       <main className="flex-grow text-center mt-4 px-0">
 
         <div className="space-y-6 mt-8">
-          {categoryPosts.length > 0 ? (
-            categoryPosts.map((post) => <Post key={post.id} post={post} />)
-          ) : (
+          
+
+          {/*alternative code: (check first if chosen button is Forum)*/}
+          {selectedSection === 'Jobs' && (
             <div className="bg-white p-8 rounded-lg shadow text-center">
               <h3 className="text-xl font-medium text-gray-700">
-                No posts yet
+                Job Listings
               </h3>
               <p className="text-gray-500 mt-2">
-                Be the first to post in the {categoryName} forum!
+                No job listings available at the moment.
               </p>
             </div>
           )}
+          {selectedSection === 'Artists' && (
+            <div className="bg-white p-8 rounded-lg shadow text-center">
+              <h3 className="text-xl font-medium text-gray-700">
+                Featured Artists
+              </h3>
+              <p className="text-gray-500 mt-2">
+                No featured artists available at the moment.
+              </p>
+            </div>
+          )}
+          {selectedSection === 'Forum' && 
+            (categoryPosts.length > 0 ? (
+              categoryPosts.map((post) => <Post key={post.id} post={post} />)
+            ) : (
+              <div className="bg-white p-8 rounded-lg shadow text-center">
+                <h3 className="text-xl font-medium text-gray-700">
+                  No posts yet
+                </h3>
+                <p className="text-gray-500 mt-2">
+                  Be the first to post in the {categoryName} forum!
+                </p>
+              </div>
+            ))
+          }
         </div>
       </main>
     </div>
