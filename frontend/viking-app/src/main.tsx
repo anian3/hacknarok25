@@ -4,7 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.tsx";
 import '@fontsource/inter/index.css';
-import '@fontsource/inder/index.css';
+import '@fontsource/roboto/index.css';
+import '@fontsource/cinzel/index.css';
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

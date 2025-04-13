@@ -9,6 +9,8 @@
     --granat: #000d28; 
     --beige-light: #B58F54;
     --font-inter: 'Inter', system-ui, sans-serif;
+    --font-roboto: 'Roboto', system-ui, sans-serif;
+    --font-cinzel: 'Cinzel', system-ui, serif;
   }
   html {
     font-family: var(--font-inter), sans-serif;
@@ -25,6 +27,9 @@
   .text-beige-light { color: var(--beige-light); }
   .icon-beige-100 {
     filter: sepia(73%) saturate(278%) hue-rotate(357deg) brightness(93%) contrast(88%);
+  }
+  .font-cinzel {
+    font-family: var(--font-cinzel), serif;
   }
   .icon-black {
     filter: sepia(73%) saturate(278%) hue-rotate(357deg) brightness(0%) contrast(88%);

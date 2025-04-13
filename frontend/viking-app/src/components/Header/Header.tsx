@@ -55,7 +55,7 @@ function Header() {
   ];
 
   return (
-    <header className="w-full p-2 bg-granat relative">
+    <header className= "w-full p-2 bg-granat relative font-cinzel">
       <nav className="flex items-center justify-between mx-5">
         {/* Logo - visible on all screens */}
         <Link to="/" className="flex gap-2 items-center flex-shrink-0 text-beige-100 font-bold text-base scale-120">
