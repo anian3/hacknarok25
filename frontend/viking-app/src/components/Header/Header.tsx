@@ -74,7 +74,7 @@ function Header() {
                 >
                   <Link
                     to={item.path}
-                    className="flex flex-col items-center hover:underline text-base text-beige-100"
+                    className="flex flex-col items-center hover:underline text-base text-sm text-beige-100"
                   >
                     <img
                       src={item.icon}
