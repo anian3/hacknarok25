@@ -27,7 +27,7 @@ const samplePosts = {
       timestamp: "3 hours ago",
       content:
         "Just discovered this amazing indie band called 'Northern Lights'. Their harmonies are absolutely ethereal. Has anyone else been listening to their new album?",
-      images: ["/api/placeholder/600/400"],
+      images: [""],
       likes: 28,
       comments: [
         {
@@ -53,7 +53,7 @@ const samplePosts = {
       timestamp: "Yesterday",
       content:
         "I've been practicing Bach's Cello Suite No. 1 for months now. Would love some feedback on my technique if anyone has the time.",
-      images: ["/api/placeholder/600/400", "/api/placeholder/600/400"],
+      images: [""],
       likes: 45,
       comments: [
         {
@@ -82,7 +82,7 @@ const samplePosts = {
       timestamp: "5 hours ago",
       content:
         "Just finished watching 'The Lighthouse' (2019). The black and white cinematography and claustrophobic atmosphere create such a haunting experience. What did you all think of the ending?",
-      images: ["/api/placeholder/600/400"],
+      images: [""],
       likes: 72,
       comments: [
         {
@@ -111,7 +111,7 @@ const samplePosts = {
       timestamp: "1 day ago",
       content:
         "Our community theater is putting on 'Waiting for Godot' next month. I'm directing for the first time and would love some advice on staging such an abstract work.",
-      images: ["/api/placeholder/600/400"],
+      images: [""],
       likes: 34,
       comments: [
         {
@@ -140,7 +140,7 @@ const samplePosts = {
       timestamp: "2 days ago",
       content:
         "I just finished 'One Hundred Years of Solitude' and I'm completely mesmerized. The way García Márquez weaves reality and magic is unlike anything I've read before.",
-      images: ["/api/placeholder/600/400"],
+      images: [""],
       likes: 86,
       comments: [
         {
@@ -169,11 +169,7 @@ const samplePosts = {
       timestamp: "4 hours ago",
       content:
         "Just finished this watercolor landscape inspired by Monet's style. Still working on my technique with light and reflection. Any feedback is welcome!",
-      images: [
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-      ],
+      images: [""],
       likes: 112,
       comments: [
         {
@@ -202,7 +198,7 @@ const samplePosts = {
       timestamp: "6 hours ago",
       content:
         "Caught this amazing sunset at Glacier National Park last week. Shot on my Sony A7IV with minimal post-processing. Nature's colors are just incredible.",
-      images: ["/api/placeholder/600/400", "/api/placeholder/600/400"],
+      images: [""],
       likes: 203,
       comments: [
         {
@@ -231,7 +227,12 @@ const samplePosts = {
       timestamp: "2 days ago",
       content:
         "Finally completed this marble piece after 3 months of work. Trying to capture the flowing movement in static stone was challenging but rewarding.",
-      images: ["/api/placeholder/600/400", "/api/placeholder/600/400"],
+      images: [
+        "/assets/pudzian.jpg",
+        "/assets/post_picture.png",
+        "/assets/pudzian.jpg",
+        "/assets/pudzian.jpg",
+      ],
       likes: 67,
       comments: [
         {
@@ -293,11 +294,7 @@ const samplePosts = {
       timestamp: "3 days ago",
       content:
         "After weeks of rendering, my latest 3D environment is complete! Created in Blender with custom shaders for the volumetric lighting. Swipe to see the wireframe and clay renders.",
-      images: [
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-        "/api/placeholder/600/400",
-      ],
+      images: [],
       likes: 215,
       comments: [
         {
@@ -326,7 +323,7 @@ const samplePosts = {
       timestamp: "1 hour ago",
       content:
         "Hello fellow artists! I'm new to this platform and excited to connect with creative minds. I work primarily in mixed media and digital art. What are you all working on these days?",
-      images: ["/api/placeholder/600/400"],
+      images: [""],
       likes: 42,
       comments: [
         {
@@ -352,7 +349,7 @@ const samplePosts = {
       timestamp: "Yesterday",
       content:
         "🎉 Exciting news! We're hosting our first virtual art exhibition next month. All members are invited to submit their work. Theme: 'Transitions'. Submission details in the comments!",
-      images: ["/api/placeholder/600/400"],
+      images: [""],
       likes: 183,
       comments: [
         {
