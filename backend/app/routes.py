@@ -1,11 +1,31 @@
+from datetime import datetime
+
+from flasgger import swag_from
 
 from . import db
 
 from flask import Blueprint, jsonify, request
-from app.models import User, Profile, BusinessProfile, ArtistProfile
+from app.models import Profile, BusinessProfile, ArtistProfile, Post, Comment, Category
 
 main = Blueprint("main", __name__)
 
+@main.route('/categories', methods=['GET'])
+def get_categories():
+    """
+    Get all categories
+    ---
+    responses:
+      200:
+        description: A list of all category names
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+    """
+    categories = Category.query.all()
+    return jsonify([category.name for category in categories])
 @main.route('/artist_profile', methods=['POST'])
 def create_artist_profile():
     """
@@ -111,30 +131,34 @@ def create_artist_profile():
     # Return a success message with the profile data
     return jsonify({"message": "Artist profile created successfully", "profile": artist_profile.to_dict()}), 201
 
-
-@main.route('/profile/<profile_id>', methods=['DELETE'])
-def delete_profile(profile_id):
+@main.route('/artist/<artist_id>', methods=['DELETE'])
+def delete_artist(artist_id):
     """
-      Delete a by id
-      Parameters:
-        - profile_id (string): The ID of the profile to be deleted.
+    Delete an artist profile by ID
+    ---
+    parameters:
+      - name: artist_id
+        in: path
+        required: true
+        description: The ID of the artist profile to be deleted.
+        schema:
+          type: string
+    responses:
+      200:
+        description: Artist profile deleted successfully.
+      404:
+        description: Artist profile not found.
+    """
+    # Find the artist profile by ID
+    artist = ArtistProfile.query.get(artist_id)
 
-      Responses:
-        200:
-          description: Profile  deleted successfully.
-        404:
-          description: Profile not found.
-      """
-    # Find the base profile by ID
-    profile = Profile.query.get(profile_id)
+    if not artist:
+        return jsonify({"message": "Artist profile not found"}), 404
 
-    if not profile:
-        return jsonify({"message": "Profile not found"}), 404
-
-    db.session.delete(profile)
+    db.session.delete(artist)
     db.session.commit()
 
-    return jsonify({"message": "Profile deleted successfully"}), 200
+    return jsonify({"message": "Artist profile deleted successfully"}), 200
 
 @main.route('/artist_profile/', methods=['GET'])
 def get_artist_profiles():
@@ -161,7 +185,7 @@ def get_artist_profiles():
 @main.route('/artist_profile/<profile_id>', methods=['GET'])
 def get_artist_profile_by_id(profile_id):
     """
-              Get a artist profile by ID
+              Get an artist profile by ID
               ---
               parameters:
                 - name: profile_id
@@ -407,53 +431,392 @@ def get_profile(profile_id):
 
 
 
-@main.route('/')
-def index():
-    return jsonify({"message": "Welcome to the Flask backend!"})
+api = Blueprint('api', __name__)
 
-@main.route('/users', methods=['GET'])
-def get_users():
+# Post Endpoints
+@main.route('/post', methods=['POST'])
+def create_post():
     """
-    Get list of users
-    ---
-    responses:
-      200:
-        description: A list of users
-        schema:
-          type: array
-          items:
-            properties:
-              id:
-                type: integer
-              username:
-                type: string
-              email:
-                type: string
-    """
-    users = User.query.all()
-    return jsonify([user.to_dict() for user in users])
-
-@main.route('/users', methods=['POST'])
-def add_user():
-    """
-    Add a new user
+    Create a new post
     ---
     parameters:
       - in: body
-        name: user
+        name: post
         required: true
         schema:
+          type: object
           properties:
-            username:
+            author_id:
               type: string
-            email:
+              description: The ID of the profile author
+            content:
               type: string
+              description: The content of the post
+            images:
+              type: array
+              items:
+                type: string
+              description: A list of image URLs for the post
+            likes:
+              type: integer
+              description: The number of likes for the post
+            comments:
+              type: array
+              items:
+                type: object
+                properties:
+                  author_id:
+                    type: string
+                    description: The ID of the profile author
+                  content:
+                    type: string
+                    description: The content of the comment
+                  timestamp:
+                    type: string
+                    description: The timestamp of the comment
+              description: A list of comments on the post
+            timestamp:
+              type: string
+              description: The timestamp when the post was created
     responses:
       201:
-        description: User created successfully
+        description: Post created successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+            post:
+              type: object
+              properties:
+                id:
+                  type: integer
+                author_id:
+                  type: string
+                content:
+                  type: string
+                images:
+                  type: array
+                  items:
+                    type: string
+                likes:
+                  type: integer
+                comments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      author_id:
+                        type: string
+                      content:
+                        type: string
+                      timestamp:
+                        type: string
     """
+    # Get the data from the request body
     data = request.get_json()
-    new_user = User(username=data['username'], email=data['email'])
-    db.session.add(new_user)
+
+    # Check if required fields are present
+    if not data.get("author_id") or not data.get("content"):
+        return jsonify({"message": "Missing required fields"}), 400
+
+    # Create the post
+    post = Post(
+        author_id=data["author_id"],
+        content=data["content"],
+        images=data.get("images", []),
+        likes=data.get("likes", 0),
+        comments=data.get("comments", []),
+        timestamp=data["timestamp"]
+    )
+
+    # Add the post to the database session
+    db.session.add(post)
     db.session.commit()
-    return jsonify(new_user.to_dict()), 201
+
+    return jsonify({"message": "Post created successfully", "post": post.to_dict()}), 201
+
+
+
+@main.route('/post/<int:post_id>', methods=['GET'])
+def get_post(post_id):
+    """
+    Get a specific post by its ID
+    ---
+    parameters:
+      - in: path
+        name: post_id
+        required: true
+        type: integer
+        description: The ID of the post to retrieve
+    responses:
+      200:
+        description: A post object
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+            author_id:
+              type: string
+            content:
+              type: string
+            images:
+              type: array
+              items:
+                type: string
+            likes:
+              type: integer
+            comments:
+              type: array
+              items:
+                type: object
+                properties:
+                  author_id:
+                    type: string
+                  content:
+                    type: string
+                  timestamp:
+                    type: string
+            timestamp:
+              type: string
+      404:
+        description: Post not found
+    """
+    post = Post.query.get(post_id)
+
+    # If post is not found, return an error
+    if not post:
+        return jsonify({"message": "Post not found"}), 404
+
+    # Return the serialized post data using the to_dict method
+    return jsonify(post.to_dict()), 200
+
+def get_posts():
+    posts = Post.query.all()
+    return jsonify([p.to_dict for p in posts])
+
+
+# Comment Endpoints
+@main.route('/comment', methods=['POST'])
+def create_comment():
+    """
+    Create a new comment on a post
+    ---
+    parameters:
+      - in: body
+        name: comment
+        required: true
+        schema:
+          type: object
+          properties:
+            post_id:
+              type: string
+              description: The ID of the post the comment is related to
+            author_id:
+              type: string
+              description: The ID of the profile author of the comment
+            content:
+              type: string
+              description: The content of the comment
+            timestamp:
+              type: string
+              description: The timestamp of the comment creation
+    responses:
+      201:
+        description: Comment created successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+            comment:
+              type: object
+              properties:
+                id:
+                  type: string
+                post_id:
+                  type: string
+                author_id:
+                  type: string
+                content:
+                  type: string
+                timestamp:
+                  type: string
+    """
+    # Get the data from the request body
+    data = request.get_json()
+
+    # Check if required fields are present
+    if not data.get("post_id") or not data.get("author_id") or not data.get("content"):
+        return jsonify({"message": "Missing required fields"}), 400
+
+    # Convert the timestamp from string to datetime object
+    timestamp_str = data.get("timestamp")
+    if timestamp_str:
+        try:
+            timestamp = datetime.strptime(timestamp_str, "%Y-%m-%dT%H:%M:%SZ")
+        except ValueError:
+            return jsonify({"message": "Invalid timestamp format. Please use 'YYYY-MM-DDTHH:MM:SSZ'"}), 400
+    else:
+        timestamp = datetime.utcnow()  # default to current UTC time if not provided
+
+    # Create a new comment
+    comment = Comment(
+        post_id=data["post_id"],
+        author_id=data["author_id"],
+        content=data["content"],
+        timestamp=timestamp  # Use the datetime object
+    )
+
+    # Add the comment to the database session
+    db.session.add(comment)
+    db.session.commit()
+
+    return jsonify({"message": "Comment created successfully", "comment": comment.to_dict()}), 201
+
+# @api.route('/comments', methods=['POST'])
+# @swag_from({
+#     'tags': ['Comment'],
+#     'description': 'Create a new comment.',
+#     'parameters': [
+#         {
+#             'name': 'comment',
+#             'in': 'body',
+#             'required': True,
+#             'schema': {
+#                 'type': 'object',
+#                 'properties': {
+#                     'post_id': {'type': 'string'},
+#                     'author_id': {'type': 'string'},
+#                     'content': {'type': 'string'}
+#                 },
+#                 'example': {
+#                     'post_id': '1',
+#                     'author_id': '123',
+#                     'content': 'This is a comment!'
+#                 }
+#             }
+#         }
+#     ],
+#     'responses': {
+#         '201': {
+#             'description': 'Comment added successfully',
+#             'schema': {
+#                 'type': 'object',
+#                 'properties': {
+#                     'message': {'type': 'string'},
+#                     'id': {'type': 'string'}
+#                 }
+#             }
+#         }
+#     }
+# })
+def create_comment():
+    data = request.get_json()
+    comment = Comment(
+        post_id=data['post_id'],
+        author_id=data['author_id'],
+        content=data['content']
+    )
+    db.session.add(comment)
+    db.session.commit()
+    return jsonify({"message": "Comment added", "id": comment.id}), 201
+
+@main.route('/comment/<int:comment_id>', methods=['GET'])
+def get_comment(comment_id):
+    """
+    Get a specific comment by its ID
+    ---
+    parameters:
+      - in: path
+        name: comment_id
+        required: true
+        type: integer
+        description: The ID of the comment to retrieve
+    responses:
+      200:
+        description: A comment object
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+            author_id:
+              type: string
+            content:
+              type: string
+            timestamp:
+              type: string
+      404:
+        description: Comment not found
+    """
+    # Retrieve the comment from the database
+    comment = Comment.query.get(comment_id)
+
+    # If comment is not found, return an error
+    if not comment:
+        return jsonify({"message": "Comment not found"}), 404
+
+    # Return the serialized comment data using the to_dict method
+    return jsonify(comment.to_dict()), 200
+
+import os
+from werkzeug.utils import secure_filename
+
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'static/uploads/images')
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@main.route('/upload_image', methods=['POST'])
+def upload_image():
+    """
+       Upload an image and return the file path
+       ---
+       parameters:
+         - in: formData
+           name: file
+           type: file
+           required: true
+           description: The image file to be uploaded
+       responses:
+         200:
+           description: File uploaded successfully
+           schema:
+             type: object
+             properties:
+               message:
+                 type: string
+                 example: "File uploaded"
+               file_path:
+                 type: string
+                 example: "/static/uploads/images/your_image.jpg"
+         400:
+           description: Invalid file or no file selected
+           schema:
+             type: object
+             properties:
+               message:
+                 type: string
+                 example: "No file part"
+       """
+    file = request.files.get('file')
+
+    if file.filename == '':
+        return jsonify({"message": "No selected file"}), 400
+
+    if file and allowed_file(file.filename):
+        # Create the directory if it doesn't exist
+        if not os.path.exists(UPLOAD_FOLDER):
+            os.makedirs(UPLOAD_FOLDER)
+
+        filename = secure_filename(file.filename)
+        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        file.save(file_path)
+
+        return jsonify({"message": "File uploaded", "file_path": file_path}), 200
+
+    return jsonify({"message": "Invalid file type"}), 400
+
