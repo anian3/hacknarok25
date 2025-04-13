@@ -54,7 +54,7 @@ const ArtistCard = ({ artist }: { artist: ArtistProfileData }) => {
                   </div>
                   <button
                     onClick={handleFollowClick}
-                    className={`rounded-full px-5 py-1.5 text-sm font-medium transition-colors ${
+                    className={`rounded-full px-5 py-1.5 text-sm font-medium transition-colors cursor-pointer overflow-hidden ${
                       isFollowed
                         ? "bg-indigo-900 text-white"
                         : "bg-gray-100 text-gray-800 hover:bg-gray-200"
