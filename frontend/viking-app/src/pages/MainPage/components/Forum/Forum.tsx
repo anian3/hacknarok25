@@ -19,6 +19,7 @@ const samplePosts = {
   [CategoryId.MUSIC]: [
     {
       id: "m1",
+      title: 'A Day in the Mountains',
       author: {
         id: "artist/0",
         name: "Elena Sanchez",
@@ -45,6 +46,7 @@ const samplePosts = {
     },
     {
       id: "m2",
+      title: 'A Day in the Mountains',
       author: {
         id: "user345",
         name: "ClassicalFan",
@@ -74,6 +76,7 @@ const samplePosts = {
   [CategoryId.FILM]: [
     {
       id: "f1",
+      title: 'A Day in the Mountains',
       author: {
         id: "user567",
         name: "CinemaCritic",
@@ -103,6 +106,7 @@ const samplePosts = {
   [CategoryId.THEATER]: [
     {
       id: "t1",
+      title: 'A Day in the Mountains',
       author: {
         id: "user789",
         name: "StageDirector",
@@ -132,6 +136,7 @@ const samplePosts = {
   [CategoryId.LITERATURE]: [
     {
       id: "l1",
+      title: 'A Day in the Mountains',
       author: {
         id: "user901",
         name: "BookWorm",
@@ -161,6 +166,7 @@ const samplePosts = {
   [CategoryId.PAINTING]: [
     {
       id: "p1",
+      title: 'A Day in the Mountains',
       author: {
         id: "user123",
         name: "ImpressionistLover",
@@ -190,12 +196,13 @@ const samplePosts = {
   [CategoryId.PHOTOGRAPHY]: [
     {
       id: "ph1",
+      title: 'A Day in the Mountains',
       author: {
         id: "user345",
         name: "LensExplorer",
         avatar: "",
       },
-      timestamp: "6 hours ago",
+      timestamp: "22.03.2025",
       content:
         "Caught this amazing sunset at Glacier National Park last week. Shot on my Sony A7IV with minimal post-processing. Nature's colors are just incredible.",
       images: [""],
@@ -210,7 +217,7 @@ const samplePosts = {
           },
           content:
             "Stunning composition! The silhouette of the mountains creates such a dramatic effect.",
-          timestamp: "4 hours ago",
+          timestamp: "23.03.2025",
         },
       ],
     },
@@ -219,12 +226,13 @@ const samplePosts = {
   [CategoryId.SCULPTURE]: [
     {
       id: "s1",
+      title: 'This is PUDZIAN',
       author: {
         id: "user567",
         name: "StoneCrafter",
         avatar: "",
       },
-      timestamp: "2 days ago",
+      timestamp: "21.03.2025",
       content:
         "Finally completed this marble piece after 3 months of work. Trying to capture the flowing movement in static stone was challenging but rewarding.",
       images: [
@@ -253,6 +261,7 @@ const samplePosts = {
   [CategoryId.FASHION]: [
     {
       id: "fa1",
+      title: 'A Day in the Mountains',
       author: {
         id: "user789",
         name: "StylishDesigner",
@@ -286,6 +295,7 @@ const samplePosts = {
   [CategoryId.COMPUTER_GRAPHICS]: [
     {
       id: "cg1",
+      title: '3D Environment Showcase',
       author: {
         id: "user901",
         name: "PixelMaster",
@@ -315,6 +325,7 @@ const samplePosts = {
   [CategoryId.MAIN]: [
     {
       id: "main1",
+      title: "Welcome to the Viking Art Community!",
       author: {
         id: "user123",
         name: "ArtEnthusiast",
@@ -341,6 +352,7 @@ const samplePosts = {
     },
     {
       id: "main2",
+      title: "Upcoming Virtual Art Exhibition",
       author: {
         id: "user345",
         name: "CommunityManager",
