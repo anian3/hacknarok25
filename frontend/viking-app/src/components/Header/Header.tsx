@@ -58,7 +58,7 @@ function Header() {
     <header className="w-full p-2 bg-granat relative">
       <nav className="flex items-center justify-between mx-5">
         {/* Logo - visible on all screens */}
-        <Link to="/" className="flex items-center gap-2 flex-shrink-0 text-beige-100 font-bold text-base">
+        <Link to="/" className="flex items-center gap-2 flex-shrink-0 text-beige-100 font-bold text-base scale-120">
         <img src={logo} alt="Logo" className="h-10 md:h-12" />
           <span>MuseDrasil</span>
         </Link>
@@ -70,7 +70,7 @@ function Header() {
               {navItems.map((item) => (
                 <div
                   key={item.path}
-                  className="flex flex-col items-center justify-center"
+                  className="flex flex-col scale-90 items-center justify-center transform transition-transform duration-300 hover:scale-101"
                 >
                   <Link
                     to={item.path}
@@ -79,10 +79,10 @@ function Header() {
                     <img
                       src={item.icon}
                       alt={item.alt}
-                      className="h-10 w-10 block icon-beige-100 scale-70"
+                      className="h-10 w-10 block icon-beige-100"
                       style={{ display: "block" }}
                     />
-                    <span>{item.label}</span>
+                    <span className="scale-90">{item.label}</span>
                   </Link>
                 </div>
               ))}

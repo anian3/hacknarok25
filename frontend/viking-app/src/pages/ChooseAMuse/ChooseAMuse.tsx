@@ -23,7 +23,7 @@ const Home: React.FC = () => {
               <CategoryCard {...categories[9]} />
             </div>
             {/* Poziom 2 – 2 karty */}
-            <div className="flex justify-center gap-25">
+            <div className="flex justify-center gap-35">
               <CategoryCard {...categories[1]} />
               <CategoryCard {...categories[2]} />
             </div>  
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
               <CategoryCard {...categories[6]} />
             </div>
             {/* Poziom 5 – 3 karty */}
-            <div className="flex justify-center gap-15">
+            <div className="flex justify-center gap-10">
               <CategoryCard {...categories[7]} />
               <CategoryCard {...categories[8]} />
               <CategoryCard {...categories[0]} />
