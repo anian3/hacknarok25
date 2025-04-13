@@ -58,9 +58,9 @@ function Header() {
     <header className= "w-full p-2 bg-granat relative">
       <nav className="flex items-center justify-between mx-5">
         {/* Logo - visible on all screens */}
-        <Link to="/" className="flex items-center gap-2 flex-shrink-0 text-beige-100 font-bold text-base scale-120">
-        <img src={logo} alt="Logo" className="h-10 md:h-12" />
-          <span>MuseDrasil</span>
+        <Link to="/" className="flex gap-2 items-center flex-shrink-0 text-beige-100 font-bold text-base scale-120">
+        <img src={logo} alt="Logo" className="h-10 md:h-12 scale-70" />
+          <span className="scale-120">MuseDrasil</span>
         </Link>
 
         {/* Desktop Navigation - only visible on non-mobile */}
