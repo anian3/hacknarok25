@@ -136,7 +136,7 @@ const Post = ({ post = samplePost }: PostProps) => {
             </div>
             <div>
               <h3
-                className="font-semibold text-xl text-[#B58F54] hover:text-blue-600 cursor-pointer"
+                className="font-semibold text-xl text-beige-light hover:text-blue-600 cursor-pointer"
                 onClick={(e) => handleProfileClick(e, post.author.id)}
               >
                 {post.author.name}
