@@ -156,7 +156,7 @@ const Post = ({ post = samplePost }: PostProps) => {
 
         {/* Preview Content - Always visible */}
         <div className="p-6 pb-4">
-          <p className="text-gray-800 mb-4">
+          <p className="text-left text-gray-800 mb-4">
             {expanded || post.content.length <= 120
               ? post.content
               : post.content.substring(0, 120) + "..."}

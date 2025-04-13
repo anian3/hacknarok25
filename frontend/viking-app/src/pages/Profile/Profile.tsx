@@ -291,7 +291,7 @@ const Profile = () => {
                   </svg>
                   <a
                     href={
-                      profile.contact.website.startsWith("http")
+                      (profile.contact.website ?? "").startsWith("http")
                         ? profile.contact.website
                         : `https://${profile.contact.website}`
                     }
@@ -347,7 +347,7 @@ const Profile = () => {
                   Social Media
                 </h3>
                 <div className="flex space-x-3">
-                  {Object.entries(profile.contact.social).map(
+                  {Object.entries(profile.social).map(
                     ([platform, handle], index) => (
                       <a
                         key={index}
@@ -405,14 +405,13 @@ const artistSampleProfile: ArtistProfileData = {
     { title: "Electric Concerto No. 2", image: "/api/placeholder/300/200" },
     { title: "Ambient Variations", image: "/api/placeholder/300/200" },
   ],
+  social: {
+    instagram: "@elenasanchez",
+    twitter: "@elenasmusic",
+  },
   contact: {
     email: "elena@musicexample.com",
     website: "www.elenasanchez.com",
-    social: {
-      instagram: "@elenasanchez",
-      twitter: "@elenasmusic",
-      soundcloud: "elenasanchez",
-    },
   },
 };
 
@@ -450,16 +449,16 @@ const businessSampleProfile: BusinessProfileData = {
       image: "/api/placeholder/300/200",
     },
   ],
+  social: {
+    instagram: "@harmonystudios",
+    facebook: "harmonystudios",
+    youtube: "HarmonyStudiosOfficial",
+  },
   contact: {
     email: "info@harmonystudios.com",
     website: "www.harmonystudios.com",
     phone: "+34 91 123 4567",
     address: "Calle Gran Vía 123, 28013 Madrid, Spain",
-    social: {
-      instagram: "@harmonystudios",
-      facebook: "harmonystudios",
-      youtube: "HarmonyStudiosOfficial",
-    },
   },
 };
 
