@@ -55,10 +55,10 @@ function Header() {
   ];
   
   return (
-    <header className="w-full p-4 bg-granat relative">
+    <header className="w-full p-2 bg-granat relative">
       <nav className="flex items-center justify-between mx-5">
         {/* Logo - visible on all screens */}
-        <Link to="/" className="flex items-center gap-2 flex-shrink-0 text-beige-100 font-bold text-3xl">
+        <Link to="/" className="flex items-center gap-2 flex-shrink-0 text-beige-100 font-bold text-xl">
         <img src={logo} alt="Logo" className="h-10 md:h-12" />
           <span>MuseDrasil</span>
         </Link>
@@ -75,7 +75,7 @@ function Header() {
                 >
                   <Link
                     to={item.path}
-                    className="flex flex-col items-center hover:underline text-lg text-white"
+                    className="flex flex-col items-center hover:underline text-sm text-white"
                   >
                     <img
                       src={item.icon}

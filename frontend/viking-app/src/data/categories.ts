@@ -4,61 +4,61 @@ export const CATEGORIES: Category[] = [
     {
       id: CategoryId.MUSIC,
       title: "Music",
-      image: "/images/categories/music.jpg",
+      image: "/assets/music.png",
       link: "/music"
     },
     {
       id: CategoryId.FILM,
       title: "Film",
-      image: "/images/categories/film.jpg",
+      image: "/assets/film.png",
       link: "/film"
     },
     {
       id: CategoryId.THEATER,
       title: "Theater",
-      image: "/images/categories/theater.jpg",
+      image: "/assets/theater.png",
       link: "/theater"
     },
     {
       id: CategoryId.LITERATURE,
       title: "Literature",
-      image: "/images/categories/literature.jpg",
+      image: "/assets/writing.png",
       link: "/literature"
     },
     {
       id: CategoryId.PAINTING,
       title: "Painting",
-      image: "/images/categories/painting.jpg",
+      image: "/assets/painting.png",
       link: "/painting"
     },
     {
       id: CategoryId.PHOTOGRAPHY,
       title: "Photography",
-      image: "/images/categories/photography.jpg",
+      image: "/assets/photo.png",
       link: "/photography"
     },
     {
       id: CategoryId.SCULPTURE,
       title: "Sculpture",
-      image: "/images/categories/sculpture.jpg",
+      image: "/assets/sculpture.png",
       link: "/sculpture"
     },
     {
       id: CategoryId.FASHION,
       title: "Fashion",
-      image: "/images/categories/fashion.jpg",
+      image: "/assets/fashion.png",
       link: "/fashion"
     },
     {
       id: CategoryId.COMPUTER_GRAPHICS,
       title: "Computer Graphics",
-      image: "/images/categories/computer_graphics.jpg",
+      image: "/assets/computer_graphics.png",
       link: "/computer_graphics"
     },
     {
         id: CategoryId.MAIN,
         title: "Main Forum",
-        image: "/images/categories/main.jpg",
+        image: "/assets/all.png",
         link: "/"
     }
   ];
