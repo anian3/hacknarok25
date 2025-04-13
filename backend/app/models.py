@@ -7,16 +7,15 @@ from . import db
 class Profile(db.Model):
     __tablename__ = 'profiles'
 
-    id = db.Column(db.String(50), primary_key=True, unique=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(255), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     avatar = db.Column(db.String(255), nullable=False)
     cover_image = db.Column(db.String(255), nullable=False)
     bio = db.Column(db.Text)
     location = db.Column(db.String(255))
-    contact_email = db.Column(db.String(255))
-    contact_website = db.Column(db.String(255))
-    contact_social = db.Column(db.JSON)  # Stores social links as a JSON object
+    social = db.Column(db.JSON, nullable=True)
+    contact = db.Column(db.JSON, nullable=True)
     type = db.Column(db.String(20), nullable=False)  # 'business' or 'artist'
 
     artist_profile = db.relationship('ArtistProfile', back_populates='profile', uselist=False)
@@ -28,23 +27,19 @@ class Profile(db.Model):
             "name": self.name,
             "title": self.title,
             "avatar": self.avatar,
-            "cover_image": self.cover_image,
+            "coverImage": self.cover_image,
             "bio": self.bio,
             "location": self.location,
-            "contact": {
-                "email": self.contact_email,
-                "website": self.contact_website,
-                "social": self.contact_social
-            },
+            "contact": self.contact,
+            "social": self.social,
             "type": self.type
         }
-# Artist Profile model
+
 class ArtistProfile(db.Model):
     __tablename__ = 'artist_profiles'
-    id = db.Column(db.String, db.ForeignKey('profiles.id'), primary_key=True)
 
-    # category = db.Column(db.String(255), nullable=True)
-    category= db.Column(db.String(255), db.ForeignKey('categories.name'), nullable=True)
+    id = db.Column(db.Integer, db.ForeignKey('profiles.id'), primary_key=True)
+    category = db.Column(db.String(255), db.ForeignKey('categories.name'), nullable=True)
     stats = db.Column(db.JSON, nullable=False)  # { followers, following, projects }
     skills = db.Column(db.JSON, nullable=False)  # List of skills
     portfolio = db.Column(db.JSON, nullable=False)  # List of portfolio items (title, image)
@@ -61,13 +56,10 @@ class ArtistProfile(db.Model):
         })
         return profile_dict
 
-    def __repr__(self):
-        return f'<ArtistProfile {self.name}>'
-
 # Business Profile model
 class BusinessProfile(db.Model):
     __tablename__ = 'business_profiles'
-    id = db.Column(db.String, db.ForeignKey('profiles.id'), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey('profiles.id'), primary_key=True)
 
     stats = db.Column(db.JSON)  # Flexible stats for businesses (e.g., revenue, clients)
     services = db.Column(db.JSON)  # List of services offered by the business

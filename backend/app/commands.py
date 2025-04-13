@@ -167,6 +167,117 @@ def init_categories():
 
     db.session.commit()
 
+
+@click.command("create-artist")
+@with_appcontext
+def create_artist():
+    # Ensure category exists
+    category = Category.query.filter_by(name="Music").first()
+    if not category:
+        category = Category(name="Music")
+        db.session.add(category)
+        db.session.commit()
+
+    # Create the artist profile
+    profile = Profile(
+        name="Elena Sánchez",
+        title="Pianist & Composer",
+        avatar="/assets/avatar_placeholder.png",
+        cover_image="/assets/cover_placeholder.jpg",
+        bio="Classical pianist with 15 years of experience, specializing in contemporary compositions. Currently working on my third album that explores the intersection of classical and electronic music.",
+        location="Barcelona, Spain",
+        type="artist",
+        social={"instagram": "@elenasanchez", "twitter": "@elenasmusic"},
+        contact={"email": "elena@musicexample.com", "website": "www.elenasanchez.com"}
+    )
+
+    # Add the profile to the session and commit
+    db.session.add(profile)
+    db.session.commit()
+
+    # Create the artist profile linked to the profile
+    artist_profile = ArtistProfile(
+        id=profile.id,  # Link to the profile by ID
+        category="Music",  # The category for this artist
+        stats={
+            "followers": 3245,
+            "following": 420,
+            "projects": 28
+        },
+        skills=[
+            "Piano",
+            "Composition",
+            "Music Theory",
+            "Orchestra Arrangement",
+            "Electronic Production"
+        ],
+        portfolio=[
+            {"title": "Moonlight Sonatas", "image": "/api/placeholder/300/200"},
+            {"title": "Electric Concerto No. 2", "image": "/api/placeholder/300/200"},
+            {"title": "Ambient Variations", "image": "/api/placeholder/300/200"}
+        ]
+    )
+
+    # Add the artist profile and commit
+    db.session.add(artist_profile)
+    db.session.commit()
+
+    click.echo("Artist profile for Elena Sánchez created successfully!")
+
+import json
+
+@click.command("seed_profiles")
+@with_appcontext
+def seed_profiles():
+    """Seed profiles and artist profiles from a JSON file into the database."""
+
+    # Path to your JSON file
+    json_file_path = 'app/artists.json'
+
+    try:
+        with open(json_file_path, 'r') as file:
+            artists_data = json.load(file)
+            print(f"Loaded {len(artists_data)} artist profiles from JSON.")
+
+            for artist_data in artists_data:
+                # Create the Profile (common base for ArtistProfile)
+                profile = Profile(
+                    name=artist_data["name"],
+                    title=artist_data["title"],
+                    avatar=artist_data["avatar"],
+                    cover_image=artist_data["cover_image"],
+                    bio=artist_data["bio"],
+                    location=artist_data["location"],
+                    social=artist_data.get("social", None),
+                    contact=artist_data.get("contact", None),
+                    type='artist'  # Mark the type as 'artist' for ArtistProfile
+                )
+
+                # Create the ArtistProfile (specific to artist data)
+                artist_profile = ArtistProfile(
+                    stats_followers=artist_data["stats_followers"],
+                    stats_following=artist_data["stats_following"],
+                    stats_projects=artist_data["stats_projects"],
+                    category_id=artist_data["category_id"],
+                    skills=artist_data["skills"],
+                    portfolio=artist_data["portfolio"]
+                )
+
+                # Associate the ArtistProfile with the Profile
+                profile.artist_profile = artist_profile
+
+                # Add both the profile and artist_profile to the session
+                db.session.add(profile)
+
+            # Commit the session after processing all the artists
+            db.session.commit()
+            print(f"Successfully inserted {len(artists_data)} artist profiles into the database.")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        db.session.rollback()
+
+
 def register_commands(app):
     app.cli.add_command(create_sample_profile)
     app.cli.add_command(create_sample_business_profile)
@@ -174,3 +285,4 @@ def register_commands(app):
     app.cli.add_command(delete_profile_command)
     app.cli.add_command(create_post)
     app.cli.add_command(init_categories)
+    app.cli.add_command(seed_profiles)
