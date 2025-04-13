@@ -25,7 +25,8 @@ const ArtistCard = ({ artist }: { artist: ArtistProfileData }) => {
               <div className="flex-shrink-0">
                 {artist.avatar ? (
                   <img 
-                    src={artist.avatar} 
+                    // src={artist.avatar} 
+                    src={"/assets/avatar_placeholder.png"}
                     alt={`${artist.name}'s profile`}
                     className="w-20 h-20 rounded-full object-cover border-2 border-gray-100"
                   />
@@ -54,7 +55,7 @@ const ArtistCard = ({ artist }: { artist: ArtistProfileData }) => {
                   </div>
                   <button
                     onClick={handleFollowClick}
-                    className={`rounded-full px-5 py-1.5 text-sm font-medium transition-colors ${
+                    className={`rounded-full px-5 py-1.5 text-sm font-medium transition-colors cursor-pointer overflow-hidden ${
                       isFollowed
                         ? "bg-indigo-900 text-white"
                         : "bg-gray-100 text-gray-800 hover:bg-gray-200"
