@@ -1,14 +1,14 @@
 export enum CategoryId {
-    MUSIC = "music",
-    FILM = "film",
-    THEATER = "theater",
-    LITERATURE = "literature",
-    PAINTING = "painting",
-    PHOTOGRAPHY = "photography",
-    SCULPTURE = "sculpture",
-    FASHION = "fashion",
-    COMPUTER_GRAPHICS = "computer_graphics",
-    MAIN = "main"
+    MUSIC = "Music",
+    FILM = "Film",
+    THEATER = "Theater",
+    LITERATURE = "Literature",
+    PAINTING = "Painting",
+    PHOTOGRAPHY = "Photography",
+    SCULPTURE = "Sculpture",
+    FASHION = "Fashion",
+    COMPUTER_GRAPHICS = "Computer Graphics",
+    MAIN = "Main"
   }
 
   export interface Category {
