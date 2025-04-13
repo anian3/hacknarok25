@@ -22,6 +22,7 @@
   .bg-beige-200 { background-color: var(--beige-200); }
   .bg-granat { background-color: var(--granat); }
   .hover\:bg-granat:hover { background-color: var(--granat); }
+  .hover\:text-beige-100:hover { color: var(--beige-100); }
   .text-beige-100 { color: var(--beige-100); }
   .text-beige-200 { color: var(--beige-200); }
   .text-beige-light { color: var(--beige-light); }

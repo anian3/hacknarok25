@@ -35,7 +35,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="bg-beige-100 rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-beige-100 shadow-lg overflow-hidden p-4">
       {/* Cover Image */}
       <div className="relative">
         {/* <div className="h-64 overflow-hidden">
