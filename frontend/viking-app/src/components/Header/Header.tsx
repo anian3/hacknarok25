@@ -60,7 +60,7 @@ function Header() {
         {/* Logo - visible on all screens */}
         <Link to="/" className="flex gap-2 items-center flex-shrink-0 text-beige-100 font-bold text-base scale-120">
         <img src={logo} alt="Logo" className="h-10 md:h-12 scale-70" />
-          <span className="scale-120">MuseDrasil</span>
+          <span className="scale-120">NineMuses</span>
         </Link>
 
         {/* Desktop Navigation - only visible on non-mobile */}

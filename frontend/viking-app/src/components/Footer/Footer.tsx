@@ -1,7 +1,7 @@
 function Footer() {
     return (
       <footer className="w-full p-4 bg-granat text-center text-white flex flex-col">
-        <p>&copy; {new Date().getFullYear()} MuseDrasil</p>
+        <p>&copy; {new Date().getFullYear()} NineMuses</p>
         <div>
           <a href="/privacy-policy" className="text-white hover:underline">
             Privacy Policy
@@ -21,7 +21,7 @@ function Footer() {
           <span className="text-white hover:underline">
             <span>Email: </span>
             <a href="/contact" className="text-white hover:underline">
-              musedrasil@gmail.com
+              ninemuses@gmail.com
             </a>
           </span>
         </div>
