@@ -55,7 +55,7 @@ function Header() {
   ];
 
   return (
-    <header className="w-full p-4 bg-granat relative">
+    <header className="font-inder w-full p-4 bg-granat relative">
       <nav className="flex items-center justify-between mx-5">
         {/* Logo - visible on all screens */}
         <Link
