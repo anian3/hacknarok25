@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 from enum import unique
 
@@ -42,7 +43,8 @@ class ArtistProfile(db.Model):
     __tablename__ = 'artist_profiles'
     id = db.Column(db.String, db.ForeignKey('profiles.id'), primary_key=True)
 
-    category = db.Column(db.String(255), nullable=False)
+    # category = db.Column(db.String(255), nullable=True)
+    category= db.Column(db.String(255), db.ForeignKey('categories.name'), nullable=True)
     stats = db.Column(db.JSON, nullable=False)  # { followers, following, projects }
     skills = db.Column(db.JSON, nullable=False)  # List of skills
     portfolio = db.Column(db.JSON, nullable=False)  # List of portfolio items (title, image)
@@ -97,9 +99,9 @@ class BusinessProfile(db.Model):
 
 class Post(db.Model):
     __tablename__ = 'posts'
-    id = db.Column(db.String, primary_key=True, unique=True)
+    id = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
     author_id = db.Column(db.String, db.ForeignKey('profiles.id'), nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow())
     content = db.Column(db.Text, nullable=False)
     likes = db.Column(db.Integer, default=0)
 
@@ -126,9 +128,9 @@ class Post(db.Model):
 
 class Comment(db.Model):
     __tablename__ = 'comments'
-    id = db.Column(db.String, primary_key=True, unique=True)
-    post_id = db.Column(db.String, db.ForeignKey('posts.id'), nullable=False)
-    author_id = db.Column(db.String, db.ForeignKey('profiles.id'), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
+    post_id = db.Column(db.String, db.ForeignKey('posts.id'), nullable=True)
+    author_id = db.Column(db.String, db.ForeignKey('profiles.id'), nullable=True)
     content = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -142,3 +144,24 @@ class Comment(db.Model):
             "content": self.content,
             "timestamp": self.timestamp
         }
+
+# Define the Category model
+class Category(db.Model):
+    __tablename__ = 'categories'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(50), nullable=False)
+
+    # artists = db.relationship("ArtistProfile", backref="category", lazy=True)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name
+        }
+
+    def __repr__(self):
+        return f"<Category {self.name}>"
+
+
+# Initialize the categories
