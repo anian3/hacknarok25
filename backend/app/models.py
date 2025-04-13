@@ -31,6 +31,28 @@ class Profile(db.Model):
             },
             "type": self.type
         }
+# Artist Profile model
+class ArtistProfile(db.Model):
+    __tablename__ = 'artist_profiles'
+    id = db.Column(db.String, db.ForeignKey('profiles.id'), primary_key=True)
+
+    category = db.Column(db.String(255), nullable=False)
+    stats = db.Column(db.JSON, nullable=False)  # { followers, following, projects }
+    skills = db.Column(db.JSON, nullable=False)  # List of skills
+    portfolio = db.Column(db.JSON, nullable=False)  # List of portfolio items (title, image)
+
+    def to_dict(self):
+        profile_dict = self.profile.to_dict()  # Get the base profile's dictionary
+        profile_dict.update({
+            "category": self.category,
+            "stats": self.stats,
+            "skills": self.skills,
+            "portfolio": self.portfolio
+        })
+        return profile_dict
+
+    def __repr__(self):
+        return f'<ArtistProfile {self.name}>'
 
 # Business Profile model
 class BusinessProfile(db.Model):

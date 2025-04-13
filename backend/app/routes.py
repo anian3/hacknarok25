@@ -2,9 +2,133 @@
 from . import db
 
 from flask import Blueprint, jsonify, request
-from app.models import User, Profile, BusinessProfile
+from app.models import User, Profile, BusinessProfile, ArtistProfile
 
 main = Blueprint("main", __name__)
+
+@main.route('/artist_profile', methods=['POST'])
+def create_artist_profile():
+    # Get the data from the request body
+    data = request.get_json()
+
+    # Check if required fields are present
+    if not data.get("id") or not data.get("name") or not data.get("category"):
+        return jsonify({"message": "Missing required fields"}), 400
+
+    base_profile = Profile(
+        id=data["id"],
+        name=data["name"],
+        title=data["title"],
+        avatar=data.get("avatar", ""),
+        cover_image=data.get("cover_image", ""),
+        bio=data.get("bio", ""),
+        location=data.get("location", ""),
+        contact_email=data.get("contact_email", ""),
+        contact_website=data.get("contact_website", ""),
+        contact_social=data.get("contact_social", {}),
+        type=data["type"]
+    )
+
+    # Create the artist profile
+    artist_profile = ArtistProfile(
+        id=data["id"],  # Linking to the base profile's id
+        category=data["category"],  # Category of the artist (must be provided)
+        stats=data.get("stats", {}),
+        skills=data.get("skills", []),
+        portfolio=data.get("portfolio", [])
+    )
+
+    # Add both the base profile and the artist profile to the session
+    db.session.add(base_profile)
+    db.session.add(artist_profile)
+
+    # Commit the changes to the database
+    db.session.commit()
+
+    # Return a success message with the profile data
+    return jsonify({"message": "Artist profile created successfully", "profile": artist_profile.to_dict()}), 201
+
+
+@main.route('/profile/<profile_id>', methods=['DELETE'])
+def delete_profile(profile_id):
+    """
+      Delete a by id
+      Parameters:
+        - profile_id (string): The ID of the profile to be deleted.
+
+      Responses:
+        200:
+          description: Profile  deleted successfully.
+        404:
+          description: Profile not found.
+      """
+    # Find the base profile by ID
+    profile = Profile.query.get(profile_id)
+
+    if not profile:
+        return jsonify({"message": "Profile not found"}), 404
+
+    db.session.delete(profile)
+    db.session.commit()
+
+    return jsonify({"message": "Profile deleted successfully"}), 200
+
+@main.route('/artist_profile/', methods=['GET'])
+def get_artist_profiles():
+    """
+               Get all artist profiles
+               ---
+               responses:
+                  200:
+                    description: A list of profiles
+                    schema:
+                      type: array
+                      items:
+                        properties:
+                          id:
+                            type: integer
+                          username:
+                            type: string
+                          email:
+                            type: string
+               """
+    artists = ArtistProfile.query.all()
+    return jsonify([a.to_dict() for a in artists]), 200
+
+@main.route('/artist_profile/<profile_id>', methods=['GET'])
+def get_artist_profile_by_id(profile_id):
+    """
+              Get a artist profile by ID
+              ---
+              parameters:
+                - name: profile_id
+                  in: path
+                  type: string
+                  required: true
+                  description: The ID of the profile
+              responses:
+                200:
+                  description: The profile details
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      title:
+                        type: string
+              """
+    # Query the artist profile by ID
+    artist_profile = ArtistProfile.query.get(profile_id)
+
+    if artist_profile:
+        # Return the artist profile data in JSON format
+        return jsonify(artist_profile.to_dict()), 200
+    else:
+        # Return a message if the profile is not found
+        return jsonify({"message": "Artist profile not found"}), 404
+
 
 @main.route('/business_profile', methods=['POST'])
 def create_business_profile():
