@@ -31,4 +31,7 @@
   .font-cinzel {
     font-family: var(--font-cinzel), serif;
   }
+  .icon-black {
+    filter: sepia(73%) saturate(278%) hue-rotate(357deg) brightness(0%) contrast(88%);
+  }
 }
