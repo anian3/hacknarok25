@@ -10,7 +10,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, link }) => {
   return (
     <Link
       to={link}
-      className="block bg-beige-100 rounded-full shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 w-20 h-20 cursor-pointer"
+      className="block bg-beige-100 rounded-full shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 w-23 h-23 cursor-pointer"
     >
       <div className=" overflow-hidden">
         <img
