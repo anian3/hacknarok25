@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/inder": "^5.2.5",
+    "@fontsource/inter": "^5.2.5",
     "@tailwindcss/vite": "^4.1.3",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
