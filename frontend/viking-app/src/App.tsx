@@ -4,7 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Forum from "./pages/MainPage/MainPage";
 import ChooseAMuse from "./pages/ChooseAMuse/ChooseAMuse";
 import Profile from "./pages/Profile/Profile";
-import './styles.css';
+import "./styles.css";
 
 function App() {
   return (
