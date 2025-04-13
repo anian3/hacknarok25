@@ -1,22 +1,35 @@
-curl -X POST http://127.0.0.1:5000/artist_profile \
--H "Content-Type: application/json" \
--d '{
-  "id": "artist_5",
-  "name": "Alice Wonderland",
-  "category": "3D Modeling",
-  "title": "3D Artist",
-  "avatar": "https://example.com/alice_avatar.jpg",
-  "cover_image": "https://example.com/alice_cover.jpg",
-  "bio": "A talented 3D artist creating stunning visual experiences.",
-  "location": "San Francisco, CA",
-  "contact_email": "alice.wonderland@example.com",
-  "contact_website": "https://alice3dportfolio.com",
-  "contact_social": {"linkedin": "https://linkedin.com/in/alicewonderland"},
-  "type": "artist",
-  "stats": {"followers": 5000, "following": 300, "projects": 15},
-  "skills": ["3D Modeling", "Character Design", "Animation"],
-  "portfolio": [
-    {"title": "3D Model of a Knight", "image": "https://example.com/portfolio_knight.jpg"},
-    {"title": "Fantasy World Creation", "image": "https://example.com/portfolio_world.jpg"}
-  ]
-}'
+curl -X POST http://localhost:5000/artist_profile \
+  -H "Content-Type: application/json" \
+  -d '{
+    "id": "artist123",
+    "name": "Jane Doe",
+    "title": "3D Artist",
+    "avatar": "https://example.com/avatar.jpg",
+    "cover_image": "https://example.com/cover.jpg",
+    "bio": "Experienced 3D artist with a passion for fantasy worlds.",
+    "location": "New York, USA",
+    "contact_email": "jane@example.com",
+    "contact_website": "https://janedoe.art",
+    "contact_social": {
+      "instagram": "@janedoeart",
+      "twitter": "@janedoe"
+    },
+    "type": "artist",
+    "category": "3D Art",
+    "stats": {
+      "followers": 5000,
+      "following": 300,
+      "projects": 15
+    },
+    "skills": ["3D Modeling", "Character Design", "Animation"],
+    "portfolio": [
+      {
+        "title": "3D Model of a Knight",
+        "image": "https://example.com/portfolio_knight.jpg"
+      },
+      {
+        "title": "Fantasy World Creation",
+        "image": "https://example.com/portfolio_world.jpg"
+      }
+    ]
+  }'

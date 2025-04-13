@@ -15,6 +15,9 @@ class Profile(db.Model):
     contact_social = db.Column(db.JSON)  # Stores social links as a JSON object
     type = db.Column(db.String(20), nullable=False)  # 'business' or 'artist'
 
+    artist_profile = db.relationship('ArtistProfile', back_populates='profile', uselist=False)
+    business_profile = db.relationship('BusinessProfile', back_populates='profile', uselist=False)
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -41,6 +44,8 @@ class ArtistProfile(db.Model):
     skills = db.Column(db.JSON, nullable=False)  # List of skills
     portfolio = db.Column(db.JSON, nullable=False)  # List of portfolio items (title, image)
 
+    profile = db.relationship('Profile', back_populates='artist_profile')
+
     def to_dict(self):
         profile_dict = self.profile.to_dict()  # Get the base profile's dictionary
         profile_dict.update({
@@ -66,7 +71,8 @@ class BusinessProfile(db.Model):
     contact_phone = db.Column(db.String(255))
     contact_address = db.Column(db.Text)
 
-    profile = db.relationship('Profile', backref=db.backref('business_profile', uselist=False))
+    profile = db.relationship('Profile', back_populates='business_profile')
+    # profile = db.relationship('Profile', backref=db.backref('business_profile', uselist=False))
 
     def to_dict(self):
         base_dict = self.profile.to_dict()  # Access BaseProfileData's to_dict

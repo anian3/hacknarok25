@@ -8,6 +8,69 @@ main = Blueprint("main", __name__)
 
 @main.route('/artist_profile', methods=['POST'])
 def create_artist_profile():
+    """
+       Create a new artist profile
+       ---
+       parameters:
+         - in: body
+           name: artist_profile
+           required: true
+           schema:
+             type: object
+             properties:
+               id:
+                 type: string
+               name:
+                 type: string
+               title:
+                 type: string
+               avatar:
+                 type: string
+               cover_image:
+                 type: string
+               bio:
+                 type: string
+               location:
+                 type: string
+               contact_email:
+                 type: string
+               contact_website:
+                 type: string
+               contact_social:
+                 type: object
+                 additionalProperties:
+                   type: string
+               type:
+                 type: string
+               category:
+                 type: string
+               stats:
+                 type: object
+                 properties:
+                   followers:
+                     type: integer
+                   following:
+                     type: integer
+                   projects:
+                     type: integer
+               skills:
+                 type: array
+                 items:
+                   type: string
+               portfolio:
+                 type: array
+                 items:
+                   type: object
+                   properties:
+                     title:
+                       type: string
+                     image:
+                       type: string
+                       format: uri
+       responses:
+         201:
+           description: Artist profile created successfully
+       """
     # Get the data from the request body
     data = request.get_json()
 
