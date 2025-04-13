@@ -49,7 +49,7 @@ const SubHeader = ({
   };
 
   return (
-    <header className="bg-white py-0 px-2 md:px-0 rounded-full mx-auto max-w-fit text-center mt-4 flex gap-4 md:gap-10">
+    <header className="bg-white py-0 px-2 md:px-0 rounded-full mx-auto max-w-fit text-center mt-4 flex gap-4 md:gap-10 shadow-lg">
       {["Forum", "Jobs", "Artists"].map((section) =>
         renderButton(section as any)
       )}
