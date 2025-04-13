@@ -372,11 +372,16 @@ const Artists = ({ categoryId }: { categoryId: CategoryId }) => {
 
     fetchArtists();
   }, []);
+
+  console.log("Fetched artist profiles:", artistProfiles);
+  console.log("Category ID:", String(categoryId));
   // Filter artists based on selected category
   const filteredArtists =
     categoryId === CategoryId.MAIN
       ? artistProfiles // Show all artists when MAIN category is selected
-      : artistProfiles.filter((artist) => artist.category === categoryId);
+      : artistProfiles.filter(
+          (artist) => String(artist.category.toLowerCase()) === String(categoryId)
+        );
 
   return (
     <div className="max-w-3xl mx-auto mb-4">
