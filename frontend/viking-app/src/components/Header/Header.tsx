@@ -33,7 +33,7 @@ function Header() {
   
   // Common navigation items
   const navItems = [
-    { path: "/muse", icon: bank_outline, alt: "Bank", label: "Choose a muse" },
+    { path: "/muse", icon: bank_outline, alt: "Bank", label: "Choose a Muse" },
     {
       path: "/community",
       icon: hand_extended_outline,
@@ -58,9 +58,11 @@ function Header() {
     <header className="w-full p-4 bg-granat relative">
       <nav className="flex items-center justify-between mx-5">
         {/* Logo - visible on all screens */}
-        <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="Logo" className="h-10 md:h-12" />
+        <Link to="/" className="flex items-center gap-2 flex-shrink-0 text-beige-100 font-bold text-3xl">
+        <img src={logo} alt="Logo" className="h-10 md:h-12" />
+          <span>MuseDrasil</span>
         </Link>
+
         
         {/* Desktop Navigation - only visible on non-mobile */}
         {!isMobile && (
