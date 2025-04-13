@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="403167ea-b3a9-443b-9ca6-b241dd0efc13" name="Changes" comment="initialize database, restAPI, swagger">
+    <list default="true" id="403167ea-b3a9-443b-9ca6-b241dd0efc13" name="Changes" comment="add artist profile, get and post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
     </list>
@@ -25,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -60,7 +64,7 @@
     "Python.run.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "backend",
+    "git-widget-placeholder": "back",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/michal/Documents/hackaton/backend",
     "project.structure.last.edited": "Modules",
@@ -157,7 +161,31 @@
       <option name="project" value="LOCAL" />
       <updated>1744412406940</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add profile and endpoint for it">
+      <option name="closed" value="true" />
+      <created>1744494314959</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744494314959</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add business profile and posting it. fix swagger">
+      <option name="closed" value="true" />
+      <created>1744496247259</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744496247259</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add artist profile, get and post">
+      <option name="closed" value="true" />
+      <created>1744502779164</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744502779164</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +201,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initialize database, restAPI, swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialize database, restAPI, swagger" />
+    <MESSAGE value="add profile and endpoint for it" />
+    <MESSAGE value="add business profile and posting it. fix swagger" />
+    <MESSAGE value="add artist profile, get and post" />
+    <option name="LAST_COMMIT_MESSAGE" value="add artist profile, get and post" />
   </component>
 </project>
