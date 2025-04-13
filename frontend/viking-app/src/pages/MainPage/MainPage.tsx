@@ -52,7 +52,7 @@ const MainPage: React.FC = () => {
         <p>{getWelcomeMessage()}</p>
       </div>
         <SubHeader onSectionChange={handleSectionChange} />
-        <main className="flex-grow text-center mt-4 px-0">
+        <main className="flex-grow text-center mx-10 mt-4">
           <div className="space-y-6 mt-8">
             {selectedSection === "Jobs" && <Jobs />}
             {selectedSection === "Artists" && (

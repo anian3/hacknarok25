@@ -35,21 +35,21 @@ const Profile = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-beige-100 rounded-lg shadow-lg overflow-hidden">
       {/* Cover Image */}
       <div className="relative">
-        <div className="h-64 overflow-hidden">
+        {/* <div className="h-64 overflow-hidden">
           <img
             src={profile.coverImage}
             alt="Cover"
             className="w-full object-cover"
           />
-        </div>
-        <div className="absolute left-8 -bottom-16">
+        </div> */}
+        <div className="absolute left-8">
           <img
             src={profile.avatar}
             alt={`${profile.name}'s avatar`}
-            className="w-50 h-50 rounded-full border-4 border-white shadow-lg object-cover"
+            className="w-50 h-50 rounded-full border-4 border-white bg-white shadow-lg object-cover"
           />
         </div>
       </div>
@@ -384,7 +384,7 @@ const artistSampleProfile: ArtistProfileData = {
   category: CategoryId.MUSIC,
   name: "Elena Sánchez",
   title: "Pianist & Composer",
-  avatar: "/assets/avatar_placeholder.png",
+  avatar: "/assets/avatar_woman.png",
   coverImage: "/assets/cover_placeholder.jpg",
   bio: "Classical pianist with 15 years of experience, specializing in contemporary compositions. Currently working on my third album that explores the intersection of classical and electronic music.",
   location: "Barcelona, Spain",

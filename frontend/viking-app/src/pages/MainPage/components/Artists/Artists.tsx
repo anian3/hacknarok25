@@ -6,7 +6,7 @@ import ArtistCard from "./ArtistCard";
 const artistProfiles: ArtistProfileData[] = [
   // Music Artist
   {
-    id: "artist-music-1",
+    id: "0",
     type: "artist",
     category: CategoryId.MUSIC,
     name: "Elena Sánchez",
@@ -352,7 +352,7 @@ const Artists = ({ categoryId }: { categoryId: CategoryId }) => {
     categoryId === CategoryId.MAIN
       ? artistProfiles // Show all artists when MAIN category is selected
       : artistProfiles.filter((artist) => artist.category === categoryId);
-  
+
   return (
     <div className="max-w-3xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">

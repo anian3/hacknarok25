@@ -49,7 +49,7 @@ const ArtistCard = ({ artist }: { artist: ArtistProfileData }) => {
         </div>
 
         <a
-          href={`/artist/${artist.id}`}
+          href={`/profile/artist/${artist.id}`}
           className="block w-full text-center py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
         >
           View Profile
