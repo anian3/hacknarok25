@@ -1,0 +1,327 @@
+[
+  {
+    "id": 0,
+    "type": "artist",
+    "category": "MUSIC",
+    "name": "Elena Sánchez",
+    "title": "Pianist & Composer",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Classical pianist with 15 years of experience, specializing in contemporary compositions. Currently working on my third album that explores the intersection of classical and electronic music.",
+    "location": "Barcelona, Spain",
+    "stats": {
+      "followers": 3245,
+      "following": 420,
+      "projects": 28
+    },
+    "skills": [
+      "Piano",
+      "Composition",
+      "Music Theory",
+      "Orchestra Arrangement",
+      "Electronic Production"
+    ],
+    "portfolio": [
+      { "title": "Moonlight Sonatas", "image": "/api/placeholder/300/200" },
+      { "title": "Electric Concerto No. 2", "image": "/api/placeholder/300/200" },
+      { "title": "Ambient Variations", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@elenasanchez",
+      "twitter": "@elenasmusic"
+    },
+    "contact": {
+      "email": "elena@musicexample.com",
+      "website": "www.elenasanchez.com"
+    }
+  },
+  {
+    "id": 1,
+    "type": "artist",
+    "category": "FILM",
+    "name": "David Johnson",
+    "title": "Filmmaker & Director",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Independent filmmaker with a focus on documentary storytelling. My work has been featured in several international film festivals and explores themes of social justice and environmental sustainability.",
+    "location": "Los Angeles, USA",
+    "stats": {
+      "followers": 5629,
+      "following": 342,
+      "projects": 14
+    },
+    "skills": [
+      "Directing",
+      "Cinematography",
+      "Screenwriting",
+      "Video Editing",
+      "Color Grading"
+    ],
+    "portfolio": [
+      { "title": "The Last Frontier", "image": "/api/placeholder/300/200" },
+      { "title": "Urban Voices", "image": "/api/placeholder/300/200" },
+      { "title": "Beyond the Horizon", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@davidjfilms",
+      "twitter": "@davidjohnson"
+    },
+    "contact": {
+      "email": "david@filmexample.com",
+      "website": "www.davidjohnsonfilms.com"
+    }
+  },
+  {
+    "id": 2,
+    "type": "artist",
+    "category": "THEATER",
+    "name": "Sophia Chen",
+    "title": "Theater Director & Playwright",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Award-winning theater director with a focus on experimental and immersive productions. I blend traditional theatrical elements with modern technology to create unique audience experiences.",
+    "location": "New York, USA",
+    "stats": {
+      "followers": 2189,
+      "following": 318,
+      "projects": 17
+    },
+    "skills": [
+      "Directing",
+      "Playwriting",
+      "Set Design",
+      "Acting",
+      "Production Management"
+    ],
+    "portfolio": [
+      { "title": "The Silent Room", "image": "/api/placeholder/300/200" },
+      { "title": "Urban Myths Reimagined", "image": "/api/placeholder/300/200" },
+      { "title": "The Digital Age", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@sophiachentheater",
+      "twitter": "@sophiachen"
+    },
+    "contact": {
+      "email": "sophia@theaterexample.com",
+      "website": "www.sophiachen.theater"
+    }
+  },
+  {
+    "id": 7,
+    "type": "artist",
+    "category": "LITERATURE",
+    "name": "Marcus Rodriguez",
+    "title": "Novelist & Poet",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Published author of three novels and two poetry collections. My work explores themes of identity, migration, and the intersection of cultural traditions in modern society.",
+    "location": "Mexico City, Mexico",
+    "stats": {
+      "followers": 4125,
+      "following": 215,
+      "projects": 8
+    },
+    "skills": [
+      "Fiction Writing",
+      "Poetry",
+      "Creative Nonfiction",
+      "Literary Translation",
+      "Editing"
+    ],
+    "portfolio": [
+      { "title": "Crossing Borders", "image": "/api/placeholder/300/200" },
+      { "title": "Night Whispers", "image": "/api/placeholder/300/200" },
+      { "title": "The Memory Collector", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@marcusbooks",
+      "twitter": "@marcusrodriguezwriter"
+    },
+    "contact": {
+      "email": "marcus@literatureexample.com",
+      "website": "www.marcusrodriguez.com"
+    }
+  },
+  {
+    "id": "3",
+    "type": "artist",
+    "category": "PAINTING",
+    "name": "Ava Thompson",
+    "title": "Contemporary Painter",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Abstract expressionist painter with exhibitions in galleries across Europe and North America. My work explores the relationship between color, emotion, and the subconscious mind.",
+    "location": "Paris, France",
+    "stats": {
+      "followers": 7834,
+      "following": 352,
+      "projects": 45
+    },
+    "skills": [
+      "Oil Painting",
+      "Acrylic",
+      "Mixed Media",
+      "Portraiture",
+      "Abstract Composition"
+    ],
+    "portfolio": [
+      { "title": "Chromatic Dreams", "image": "/api/placeholder/300/200" },
+      { "title": "Urban Fragments", "image": "/api/placeholder/300/200" },
+      { "title": "The Inner Landscape", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@avathompsonart",
+      "twitter": "@avathompson"
+    },
+    "contact": {
+      "email": "ava@paintingexample.com",
+      "website": "www.avathompsonart.com"
+    }
+  },
+  {
+    "id": "4",
+    "type": "artist",
+    "category": "PHOTOGRAPHY",
+    "name": "James Kim",
+    "title": "Documentary Photographer",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Documentary photographer specializing in environmental and social issues. My work has been published in National Geographic, Time, and The Guardian.",
+    "location": "Seoul, South Korea",
+    "stats": {
+      "followers": 8972,
+      "following": 645,
+      "projects": 32
+    },
+    "skills": [
+      "Documentary Photography",
+      "Portraiture",
+      "Photojournalism",
+      "Digital Editing",
+      "Drone Photography"
+    ],
+    "portfolio": [
+      { "title": "Changing Landscapes", "image": "/api/placeholder/300/200" },
+      { "title": "Faces of Resilience", "image": "/api/placeholder/300/200" },
+      { "title": "Urban Metamorphosis", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@jamesklens",
+      "twitter": "@jameskphoto"
+    },
+    "contact": {
+      "email": "james@photographyexample.com",
+      "website": "www.jameskimphotography.com"
+    }
+  },
+  {
+    "id": 5,
+    "type": "artist",
+    "category": "SCULPTURE",
+    "name": "Lech Adamus",
+    "title": "Contemporary Sculptor",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Sculptor working primarily with sustainable and recycled materials. My installations explore themes of environmental conservation and the relationship between humans and nature.",
+    "location": "São Paulo, Brazil",
+    "stats": {
+      "followers": 3456,
+      "following": 287,
+      "projects": 19
+    },
+    "skills": [
+      "Metal Sculpting",
+      "Wood Carving",
+      "Installation Art",
+      "3D Modeling",
+      "Public Art"
+    ],
+    "portfolio": [
+      { "title": "Urban Forest", "image": "/api/placeholder/300/200" },
+      { "title": "Reclaimed Memories", "image": "/api/placeholder/300/200" },
+      { "title": "Balance in Motion", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@isabelmoreno.art",
+      "twitter": "@isabelmoreno"
+    },
+    "contact": {
+      "email": "isabel@sculptureexample.com",
+      "website": "www.isabelmoreno.art"
+    }
+  },
+  {
+    "id": 6,
+    "type": "artist",
+    "category": "FASHION",
+    "name": "Alexander Wei",
+    "title": "Fashion Designer & Innovator",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Fashion designer specializing in sustainable and avant-garde clothing. My collections have been featured in Milan Fashion Week and focus on blending traditional craftsmanship with modern technology.",
+    "location": "Milan, Italy",
+    "stats": {
+      "followers": 12567,
+      "following": 389,
+      "projects": 21
+    },
+    "skills": [
+      "Fashion Design",
+      "Sustainable Textiles",
+      "Pattern Making",
+      "3D Garment Modeling",
+      "Couture Techniques"
+    ],
+    "portfolio": [
+      { "title": "Neo Nature Collection", "image": "/api/placeholder/300/200" },
+      { "title": "Urban Metamorphosis", "image": "/api/placeholder/300/200" },
+      { "title": "Digital Heritage", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@alexanderweifashion",
+      "twitter": "@alexanderwei",
+      "pinterest": "alexanderwei"
+    },
+    "contact": {
+      "email": "alexander@fashionexample.com",
+      "website": "www.alexanderwei.fashion"
+    }
+  },
+  {
+    "id": 7,
+    "type": "artist",
+    "category": "COMPUTER_GRAPHICS",
+    "name": "Nora Patel",
+    "title": "3D Artist & Motion Designer",
+    "avatar": "/assets/avatar_placeholder.png",
+    "coverImage": "/assets/cover_placeholder.jpg",
+    "bio": "Digital artist specializing in 3D modeling and motion design. My work combines technical precision with artistic expression, creating immersive digital experiences for film, games, and interactive media.",
+    "location": "London, UK",
+    "stats": {
+      "followers": 9231,
+      "following": 574,
+      "projects": 37
+    },
+    "skills": [
+      "3D Modeling",
+      "Character Design",
+      "Motion Design",
+      "Texturing",
+      "Procedural Generation"
+    ],
+    "portfolio": [
+      { "title": "Digital Beings", "image": "/api/placeholder/300/200" },
+      { "title": "Alternate Realities", "image": "/api/placeholder/300/200" },
+      { "title": "Synthetic Nature", "image": "/api/placeholder/300/200" }
+    ],
+    "social": {
+      "instagram": "@norapatelcg",
+      "twitter": "@norapatel"
+    },
+    "contact": {
+      "email": "nora@cgexample.com",
+      "website": "www.norapatel.art"
+    }
+  }
+]
