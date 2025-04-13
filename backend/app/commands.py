@@ -1,7 +1,9 @@
+from datetime import datetime
+
 from flask.cli import with_appcontext
 import click
 from app import db
-from app.models import User, Profile, BusinessProfile
+from app.models import Profile, BusinessProfile, Post, Category
 from app.models import ArtistProfile
 
 @click.command(name="create_sample_artist_profile")
@@ -9,29 +11,31 @@ from app.models import ArtistProfile
 def create_sample_artist_profile():
     # Create a sample artist profile
     base_profile = Profile(
-        id="artist_3",  # Unique ID
-        name="John Doe",  # Name field
-        title="Digital Artist",  # Title
-        avatar="https://example.com/johndoe_avatar.jpg",  # Avatar
-        cover_image="https://example.com/johndoe_cover.jpg",  # Cover Image
-        bio="A passionate digital artist focusing on 3D art.",  # Bio
-        location="New York, NY",  # Location
-        contact_email="john.doe@example.com",  # Email
-        contact_website="https://johndoeportfolio.com",  # Website
-        contact_social={"linkedin": "https://linkedin.com/in/johndoe", "twitter": "https://twitter.com/johndoe"},  # Social links
+        id="artist_6",  # Unique ID
+        name="Elena Sanchez",  # Name field
+        title="Pianist, Composer",  # Title
+        avatar="https://example.com/sanchena_avatar.jpg",  # Avatar
+        cover_image="https://example.com/sanchena_cover.jpg",  # Cover Image
+        bio="A passionate pianist.",  # Bio
+        location="Havana ,Cuba",  # Location
+        contact_email="elena.doe@example.com",  # Email
+        contact_website="https://sanchenaportfolio.com",  # Website
+        contact_social={"linkedin": "https://linkedin.com/in/sanchena", "twitter": "https://twitter.com/sanchena"},  # Social links
         type="artist"  # Type (artist)
     )
 
+    # computer_graphics = Category.query.filter_by(name="Computer Graphics").first()
+    # if not computer_graphics:
+    #     computer_graphics="Computer Graphics"
     # Create the artist profile
     artist_profile = ArtistProfile(
-        id="artist_3",  # Linking to the base profile's id
-        category="Digital Art",  # Category of the artist
-        stats={"followers": 3000, "following": 150, "projects": 25},  # Stats
-        skills=["3D Modeling", "Digital Illustration", "Character Design"],  # Skills
-        portfolio=[  # Portfolio items (title, image)
-            {"title": "3D Model of a Dragon", "image": "https://example.com/portfolio1.jpg"},
-            {"title": "Character Design for Game X", "image": "https://example.com/portfolio2.jpg"}
-        ]
+        id="artist_6",  # Linking to the base profile's id
+        category = "Music",
+        stats={"followers": 5000, "following": 0, "projects": 250},  # Stats
+        skills=["Piano", "Composing", "Sound Design"],
+        portfolio=[{"title": "Symphony in C", "image": "https://example.com/symphony_c.jpg"},
+        {"title": "Electronic Composition", "image": "https://example.com/electronic_composition.jpg"}
+    ]
     )
 
     db.session.add(base_profile)
@@ -118,23 +122,55 @@ def create_sample_profile():
 
     print("Sample profile created successfully!")
 
-@click.command("seed")
+@click.command("create-post")
 @with_appcontext
-def seed():
-    db.drop_all()
-    db.create_all()
+def create_post():
+    # Ensure a profile exists for the author (assuming 'artist_5' profile exists or is created)
 
-    user1 = User(username="admin", email="admin@example.com")
-    user2 = User(username="guest", email="guest@example.com")
+    # Create a new post (without comments initially)
+    new_post = Post(
+        id="1",
+        author_id="artist_5",  # The author's ID
+        content="Finally completed this marble piece after 3 months of work. Trying to capture the flowing movement in static stone was challenging but rewarding.",  # The post content
+        timestamp=datetime.strptime("22/02/2022 02:22:22", "%d/%m/%Y %H:%M:%S"),
+        images=["post_picture.png", "pudzian.png"],  # Optional images
+        likes=213,  # Set likes to 0 initially
+        comments=[]  # No comments initially
+    )
 
-    db.session.add_all([user1, user2])
+    # Add the post to the session and commit
+    db.session.add(new_post)
     db.session.commit()
 
-    click.echo("✅ Seeded the database!")
+    print(f"Post created with ID: {new_post.id}")
+
+@click.command("init-categories")
+@with_appcontext
+def init_categories():
+    categories = [
+        "Music", "Film", "Theater", "Literature", "Painting", "Photography",
+        "Sculpture", "Fashion", "Computer Graphics", "Main"
+    ]
+
+    # Add categories if they don't exist
+    for category_name in categories:
+        # if not Category.query.filter_by(name=category_name).first():
+        category = Category(name=category_name)
+        db.session.add(category)
+
+    cg_category = Category.query.filter_by(name="Computer Graphics").first()
+
+    # Update all artist profiles to that category
+    all_profiles = ArtistProfile.query.all()
+    for profile in all_profiles:
+        profile.category_id = cg_category.id
+
+    db.session.commit()
 
 def register_commands(app):
-    app.cli.add_command(seed)
     app.cli.add_command(create_sample_profile)
     app.cli.add_command(create_sample_business_profile)
     app.cli.add_command(create_sample_artist_profile)
     app.cli.add_command(delete_profile_command)
+    app.cli.add_command(create_post)
+    app.cli.add_command(init_categories)
