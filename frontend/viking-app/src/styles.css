@@ -6,7 +6,8 @@
   :root {
     --beige-100: #fef3e2;
     --beige-200: #f0e6d6;
-    --granat: #000d28;
+    --granat: #000d28; 
+    --beige-light: #B58F54;
   }
 }
 
@@ -16,4 +17,8 @@
   .bg-granat { background-color: var(--granat); }
   .hover\:bg-granat:hover { background-color: var(--granat); }
   .text-beige-100 { color: var(--beige-100); }
+  .text-beige-light { color: var(--beige-light); }
+  .icon-beige-100 {
+    filter: sepia(73%) saturate(278%) hue-rotate(357deg) brightness(93%) contrast(88%);
+  }
 }
