@@ -6,10 +6,18 @@ export type BaseProfileData = {
   coverImage: string;
   bio: string;
   location: string;
-  contact: {
+  social: Partial<{
+    instagram: string;
+    twitter: string;
+    youtube: string;
+    facebook: string;
+    pinterest: string;
+    // You can add more social platforms here in the future
+  }>;
+  contact: Partial<{
     email: string;
     website: string;
-    social: Record<string, string>;
-  };
+    phone: string;
+  }>;
 };
 

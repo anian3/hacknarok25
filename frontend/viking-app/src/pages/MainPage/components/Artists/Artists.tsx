@@ -32,14 +32,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Electric Concerto No. 2", image: "/api/placeholder/300/200" },
       { title: "Ambient Variations", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@elenasanchez",
+      twitter: "@elenasmusic",
+    },
     contact: {
       email: "elena@musicexample.com",
       website: "www.elenasanchez.com",
-      social: {
-        instagram: "@elenasanchez",
-        twitter: "@elenasmusic",
-        soundcloud: "elenasanchez",
-      },
     },
   },
   // Film Artist
@@ -70,14 +69,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Urban Voices", image: "/api/placeholder/300/200" },
       { title: "Beyond the Horizon", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@davidjfilms",
+      twitter: "@davidjohnson",
+    },
     contact: {
       email: "david@filmexample.com",
       website: "www.davidjohnsonfilms.com",
-      social: {
-        instagram: "@davidjfilms",
-        twitter: "@davidjohnson",
-        vimeo: "davidjohnson",
-      },
     },
   },
   // Theater Artist
@@ -108,13 +106,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Urban Myths Reimagined", image: "/api/placeholder/300/200" },
       { title: "The Digital Age", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@sophiachentheater",
+      twitter: "@sophiachen",
+    },
     contact: {
       email: "sophia@theaterexample.com",
       website: "www.sophiachen.theater",
-      social: {
-        instagram: "@sophiachentheater",
-        twitter: "@sophiachen",
-      },
     },
   },
   // Literature Artist
@@ -145,14 +143,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Night Whispers", image: "/api/placeholder/300/200" },
       { title: "The Memory Collector", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@marcusbooks",
+      twitter: "@marcusrodriguezwriter",
+    },
     contact: {
       email: "marcus@literatureexample.com",
       website: "www.marcusrodriguez.com",
-      social: {
-        instagram: "@marcusbooks",
-        twitter: "@marcusrodriguezwriter",
-        goodreads: "marcusrodriguez",
-      },
     },
   },
   // Painting Artist
@@ -183,14 +180,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Urban Fragments", image: "/api/placeholder/300/200" },
       { title: "The Inner Landscape", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@avathompsonart",
+      twitter: "@avathompson",
+    },
     contact: {
       email: "ava@paintingexample.com",
       website: "www.avathompsonart.com",
-      social: {
-        instagram: "@avathompsonart",
-        twitter: "@avathompson",
-        artsy: "avathompson",
-      },
     },
   },
   // Photography Artist
@@ -221,14 +217,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Faces of Resilience", image: "/api/placeholder/300/200" },
       { title: "Urban Metamorphosis", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@jamesklens",
+      twitter: "@jameskphoto",
+    },
     contact: {
       email: "james@photographyexample.com",
       website: "www.jameskimphotography.com",
-      social: {
-        instagram: "@jamesklens",
-        twitter: "@jameskphoto",
-        "500px": "jameskim",
-      },
     },
   },
   // Sculpture Artist
@@ -259,13 +254,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Reclaimed Memories", image: "/api/placeholder/300/200" },
       { title: "Balance in Motion", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@isabelmoreno.art",
+      twitter: "@isabelmoreno",
+    },
     contact: {
       email: "isabel@sculptureexample.com",
       website: "www.isabelmoreno.art",
-      social: {
-        instagram: "@isabelmoreno.art",
-        twitter: "@isabelmoreno",
-      },
     },
   },
   // Fashion Artist
@@ -296,14 +291,14 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Urban Metamorphosis", image: "/api/placeholder/300/200" },
       { title: "Digital Heritage", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@alexanderweifashion",
+      twitter: "@alexanderwei",
+      pinterest: "alexanderwei",
+    },
     contact: {
       email: "alexander@fashionexample.com",
       website: "www.alexanderwei.fashion",
-      social: {
-        instagram: "@alexanderweifashion",
-        twitter: "@alexanderwei",
-        pinterest: "alexanderwei",
-      },
     },
   },
   // Computer Graphics Artist
@@ -334,14 +329,13 @@ const artistProfiles: ArtistProfileData[] = [
       { title: "Alternate Realities", image: "/api/placeholder/300/200" },
       { title: "Synthetic Nature", image: "/api/placeholder/300/200" },
     ],
+    social: {
+      instagram: "@norapatelcg",
+      twitter: "@norapatel",
+    },
     contact: {
       email: "nora@cgexample.com",
       website: "www.norapatel.art",
-      social: {
-        instagram: "@norapatelcg",
-        twitter: "@norapatel",
-        artstation: "norapatel",
-      },
     },
   },
 ];
