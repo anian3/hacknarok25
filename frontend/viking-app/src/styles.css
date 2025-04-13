@@ -9,10 +9,9 @@
     --granat: #000d28; 
     --beige-light: #B58F54;
     --font-inter: 'Inter', system-ui, sans-serif;
-    --font-inder: 'Inder', sans-serif;
   }
   html {
-    font-family: Inter, system-ui, sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
 }
 
