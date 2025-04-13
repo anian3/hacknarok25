@@ -1,8 +1,9 @@
+from flasgger import swag_from
 
 from . import db
 
 from flask import Blueprint, jsonify, request
-from app.models import User, Profile, BusinessProfile, ArtistProfile
+from app.models import Profile, BusinessProfile, ArtistProfile, Post, Comment
 
 main = Blueprint("main", __name__)
 
@@ -161,7 +162,7 @@ def get_artist_profiles():
 @main.route('/artist_profile/<profile_id>', methods=['GET'])
 def get_artist_profile_by_id(profile_id):
     """
-              Get a artist profile by ID
+              Get an artist profile by ID
               ---
               parameters:
                 - name: profile_id
@@ -407,53 +408,271 @@ def get_profile(profile_id):
 
 
 
-@main.route('/')
-def index():
-    return jsonify({"message": "Welcome to the Flask backend!"})
+api = Blueprint('api', __name__)
 
-@main.route('/users', methods=['GET'])
-def get_users():
+# Post Endpoints
+@main.route('/post', methods=['POST'])
+def create_post():
     """
-    Get list of users
-    ---
-    responses:
-      200:
-        description: A list of users
-        schema:
-          type: array
-          items:
-            properties:
-              id:
-                type: integer
-              username:
-                type: string
-              email:
-                type: string
-    """
-    users = User.query.all()
-    return jsonify([user.to_dict() for user in users])
-
-@main.route('/users', methods=['POST'])
-def add_user():
-    """
-    Add a new user
+    Create a new post
     ---
     parameters:
       - in: body
-        name: user
+        name: post
         required: true
         schema:
+          type: object
           properties:
-            username:
+            author_id:
               type: string
-            email:
+              description: The ID of the profile author
+            content:
               type: string
+              description: The content of the post
+            images:
+              type: array
+              items:
+                type: string
+              description: A list of image URLs for the post
+            likes:
+              type: integer
+              description: The number of likes for the post
+            comments:
+              type: array
+              items:
+                type: object
+                properties:
+                  author_id:
+                    type: string
+                    description: The ID of the profile author
+                  content:
+                    type: string
+                    description: The content of the comment
+                  timestamp:
+                    type: string
+                    description: The timestamp of the comment
+              description: A list of comments on the post
+            timestamp:
+              type: string
+              description: The timestamp when the post was created
     responses:
       201:
-        description: User created successfully
+        description: Post created successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+            post:
+              type: object
+              properties:
+                id:
+                  type: integer
+                author_id:
+                  type: string
+                content:
+                  type: string
+                images:
+                  type: array
+                  items:
+                    type: string
+                likes:
+                  type: integer
+                comments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      author_id:
+                        type: string
+                      content:
+                        type: string
+                      timestamp:
+                        type: string
     """
+    # Get the data from the request body
     data = request.get_json()
-    new_user = User(username=data['username'], email=data['email'])
-    db.session.add(new_user)
+
+    # Check if required fields are present
+    if not data.get("author_id") or not data.get("content"):
+        return jsonify({"message": "Missing required fields"}), 400
+
+    # Create the post
+    post = Post(
+        author_id=data["author_id"],
+        content=data["content"],
+        images=data.get("images", []),
+        likes=data.get("likes", 0),
+        comments=data.get("comments", []),
+        timestamp=data["timestamp"]
+    )
+
+    # Add the post to the database session
+    db.session.add(post)
     db.session.commit()
-    return jsonify(new_user.to_dict()), 201
+
+    return jsonify({"message": "Post created successfully", "post": post.to_dict()}), 201
+
+
+
+@main.route('/post/<int:post_id>', methods=['GET'])
+def get_post(post_id):
+    """
+    Get a specific post by its ID
+    ---
+    parameters:
+      - in: path
+        name: post_id
+        required: true
+        type: integer
+        description: The ID of the post to retrieve
+    responses:
+      200:
+        description: A post object
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+            author_id:
+              type: string
+            content:
+              type: string
+            images:
+              type: array
+              items:
+                type: string
+            likes:
+              type: integer
+            comments:
+              type: array
+              items:
+                type: object
+                properties:
+                  author_id:
+                    type: string
+                  content:
+                    type: string
+                  timestamp:
+                    type: string
+            timestamp:
+              type: string
+      404:
+        description: Post not found
+    """
+    post = Post.query.get(post_id)
+
+    # If post is not found, return an error
+    if not post:
+        return jsonify({"message": "Post not found"}), 404
+
+    # Return the serialized post data using the to_dict method
+    return jsonify(post.to_dict()), 200
+
+def get_posts():
+    posts = Post.query.all()
+    return jsonify([p.to_dict for p in posts])
+
+
+# Comment Endpoints
+
+@api.route('/comments', methods=['POST'])
+@swag_from({
+    'tags': ['Comment'],
+    'description': 'Create a new comment.',
+    'parameters': [
+        {
+            'name': 'comment',
+            'in': 'body',
+            'required': True,
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'post_id': {'type': 'string'},
+                    'author_id': {'type': 'string'},
+                    'content': {'type': 'string'}
+                },
+                'example': {
+                    'post_id': '1',
+                    'author_id': '123',
+                    'content': 'This is a comment!'
+                }
+            }
+        }
+    ],
+    'responses': {
+        '201': {
+            'description': 'Comment added successfully',
+            'schema': {
+                'type': 'object',
+                'properties': {
+                    'message': {'type': 'string'},
+                    'id': {'type': 'string'}
+                }
+            }
+        }
+    }
+})
+def create_comment():
+    data = request.get_json()
+    comment = Comment(
+        post_id=data['post_id'],
+        author_id=data['author_id'],
+        content=data['content']
+    )
+    db.session.add(comment)
+    db.session.commit()
+    return jsonify({"message": "Comment added", "id": comment.id}), 201
+
+@main.route('/comment/<int:comment_id>', methods=['GET'])
+def get_comment(comment_id):
+    """
+    Get a specific comment by its ID
+    ---
+    parameters:
+      - in: path
+        name: comment_id
+        required: true
+        type: integer
+        description: The ID of the comment to retrieve
+    responses:
+      200:
+        description: A comment object
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+            author_id:
+              type: string
+            content:
+              type: string
+            timestamp:
+              type: string
+      404:
+        description: Comment not found
+    """
+    # Retrieve the comment from the database
+    comment = Comment.query.get(comment_id)
+
+    # If comment is not found, return an error
+    if not comment:
+        return jsonify({"message": "Comment not found"}), 404
+
+    # Return the serialized comment data using the to_dict method
+    return jsonify(comment.to_dict()), 200
+
+from enum import Enum
+
+# Define CategoryId Enum (similar to the frontend)
+class CategoryId(Enum):
+    MUSIC = "MUSIC"
+    FILM = "FILM"
+    THEATER = "THEATER"
+    LITERATURE = "LITERATURE"
+    PAINTING = "PAINTING"
+    PHOTOGRAPHY = "PHOTOGRAPHY"
+    SCULPTURE = "SCULPTURE"
+    FASHION = "FASHION"
+    COMPUTER_GRAPHICS = "COMPUTER_GRAPHICS"
+    MAIN = "MAIN"

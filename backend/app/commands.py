@@ -1,7 +1,7 @@
 from flask.cli import with_appcontext
 import click
 from app import db
-from app.models import User, Profile, BusinessProfile
+from app.models import Profile, BusinessProfile
 from app.models import ArtistProfile
 
 @click.command(name="create_sample_artist_profile")
@@ -118,22 +118,8 @@ def create_sample_profile():
 
     print("Sample profile created successfully!")
 
-@click.command("seed")
-@with_appcontext
-def seed():
-    db.drop_all()
-    db.create_all()
-
-    user1 = User(username="admin", email="admin@example.com")
-    user2 = User(username="guest", email="guest@example.com")
-
-    db.session.add_all([user1, user2])
-    db.session.commit()
-
-    click.echo("✅ Seeded the database!")
 
 def register_commands(app):
-    app.cli.add_command(seed)
     app.cli.add_command(create_sample_profile)
     app.cli.add_command(create_sample_business_profile)
     app.cli.add_command(create_sample_artist_profile)

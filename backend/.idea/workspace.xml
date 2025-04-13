@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="403167ea-b3a9-443b-9ca6-b241dd0efc13" name="Changes" comment="add artist profile, get and post">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/commands.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
     </list>
@@ -64,7 +65,7 @@
     "Python.run.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "back",
+    "git-widget-placeholder": "arts",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/michal/Documents/hackaton/backend",
     "project.structure.last.edited": "Modules",
