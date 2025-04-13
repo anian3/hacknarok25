@@ -167,33 +167,19 @@ const Post = ({ post = samplePost }: PostProps) => {
         {/* Images */}
         {post.images && post.images.length > 0 && (
           <div className="mb-3">
-            {/* Show first image or all images */}
-            <div className="relative">
+            {post.images.length === 1 ? (
               <img
                 src={post.images[0]}
                 alt="Post content"
                 className="w-full rounded-lg object-cover h-64"
               />
-
-              {/* More images indicator */}
-              {!showAllImages && post.images.length > 1 && (
-                <button
-                  className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm"
-                  onClick={toggleShowAllImages}
-                >
-                  +{post.images.length - 1} more
-                </button>
-              )}
-            </div>
-
-            {/* Additional images when expanded */}
-            {showAllImages && (
-              <div className="mt-2 grid grid-cols-2 gap-2">
-                {post.images.slice(1).map((img, index) => (
+            ) : (
+              <div className="grid grid-cols-2 gap-2">
+                {post.images.map((img, index) => (
                   <img
                     key={index}
                     src={img}
-                    alt={`Post content ${index + 2}`}
+                    alt={`Post content ${index + 1}`}
                     className="w-full rounded-lg object-cover h-48"
                   />
                 ))}
