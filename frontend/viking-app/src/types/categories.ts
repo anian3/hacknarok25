@@ -7,7 +7,7 @@ export enum CategoryId {
     PHOTOGRAPHY = "photography",
     SCULPTURE = "sculpture",
     FASHION = "fashion",
-    COMPUTER_GRAPHICS = "computer_graphics",
+    COMPUTER_GRAPHICS = "computer graphics",
     MAIN = "main"
   }
 
