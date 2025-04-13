@@ -28,4 +28,7 @@
   .icon-beige-100 {
     filter: sepia(73%) saturate(278%) hue-rotate(357deg) brightness(93%) contrast(88%);
   }
+  .font-cinzel {
+    font-family: var(--font-cinzel), serif;
+  }
 }
