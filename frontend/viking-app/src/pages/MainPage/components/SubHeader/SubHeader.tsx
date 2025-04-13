@@ -22,7 +22,7 @@ const SubHeader = ({
     const isHovering = hovering === section;
     
     // Base classes that don't change
-    const baseClasses = "px-4 md:px-25 py-2 text-base md:text-lg cursor-pointer rounded-full transition-colors duration-300 ease-in-out";
+    const baseClasses = "px-4 md:px-23 py-2 text-base md:text-lg cursor-pointer rounded-full transition-colors duration-300 ease-in-out";
     
     // Determine background and text color classes based on state
     let stateClasses = "";
